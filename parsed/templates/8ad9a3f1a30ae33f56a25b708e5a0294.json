@@ -1,0 +1,1 @@
+{"components/common/footer":"<footer class=\"footer\" role=\"contentinfo\">\r\n    {{{region name=\"footer_custom--global\"}}}\r\n</footer>\n"}

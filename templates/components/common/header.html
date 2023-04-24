@@ -1,0 +1,155 @@
+<a href="#main-content" class="skip-to-main-link">{{lang 'header.skip_to_main'}}</a>
+<header class="header sticky" role="banner">
+    {{> components/common/navigation}}
+    <div class="container">
+        <div class="header-container">
+            <div class="logo-container">
+                {{> components/common/store-logo}}
+            </div>
+            <div class="search-container">
+               <form class="form"  action="{{urls.search}}">
+                    <fieldset class="form-fieldset">
+                        <div class="form-field header-form-field">
+                            <label class="form-label is-srOnly" for="search_query_adv">{{lang 'search.results.form_label'}}</label>
+                            <div class="form-prefixPostfix wrap">
+                                <input class="magnifiying-glass" type="submit" value="{{lang 'search.results.form_button_text'}}">
+                                <input class="form-input" id="search_query_adv" name="search_query_adv" value="{{forms.search.query}}" placeholder="Search">
+                            </div>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+            <div class="main-menu-container">
+                <div class="link-list-menu-container">
+                    {{> components/common/menu-navigation_}}
+                </div>
+                <div class="icon-menu-container">
+                    <ul class="ul-icon-menu navUser-section navUser-section--alt">
+                        <li class="navUser-item navUser-item--account">
+                            {{#if customer}}
+                            <a class="header-icon-container" href="{{urls.account.index}}"
+                                aria-label="{{lang 'common.account'}}">
+                                <span class="svg-container account-svg"><svg xmlns="http://www.w3.org/2000/svg" width="21" height="24" viewBox="0 0 21 24">
+                              <path id="Path_116" data-name="Path 116" d="M10.5-9a6,6,0,0,0,6-6,6,6,0,0,0-6-6,6,6,0,0,0-6,6A6,6,0,0,0,10.5-9Zm2.377,2.25H8.123A8.124,8.124,0,0,0,0,1.373,1.625,1.625,0,0,0,1.625,3H19.376A1.622,1.622,0,0,0,21,1.373,8.124,8.124,0,0,0,12.877-6.75Z" transform="translate(0 21)" fill="#231f20"/>
+                            </svg>
+                            </span><span>{{lang 'common.account'}}</span>
+                            </a>
+
+                            {{else}}
+                            <a class="header-icon-container" href="{{urls.auth.login}}" aria-label="{{lang 'common.login'}}">
+                               <span class="svg-container account-svg"><svg xmlns="http://www.w3.org/2000/svg" width="21" height="24" viewBox="0 0 21 24">
+                              <path id="Path_116" data-name="Path 116" d="M10.5-9a6,6,0,0,0,6-6,6,6,0,0,0-6-6,6,6,0,0,0-6,6A6,6,0,0,0,10.5-9Zm2.377,2.25H8.123A8.124,8.124,0,0,0,0,1.373,1.625,1.625,0,0,0,1.625,3H19.376A1.622,1.622,0,0,0,21,1.373,8.124,8.124,0,0,0,12.877-6.75Z" transform="translate(0 21)" fill="#231f20"/>
+                            </svg>
+                            </span> <span>Account</span>
+                            </a>
+                            {{/if}}
+                        </li>
+                        <li class="navUser-item navUser-item--cart">
+                            <a class="header-icon-container" data-cart-preview data-dropdown="cart-preview-dropdown"
+                                data-options="align:right" href="{{urls.cart}}"
+                                aria-label="{{lang 'cart.nav_aria_label'}}">
+                                <span class="svg-container cart-svg"><svg xmlns="http://www.w3.org/2000/svg" width="21" height="24" viewBox="0 0 21 24">
+                                  <path id="Path_117" data-name="Path 117" d="M5.25-15.75A5.249,5.249,0,0,1,10.5-21a5.249,5.249,0,0,1,5.25,5.25v2.25h3A2.251,2.251,0,0,1,21-11.25V-1.5A4.5,4.5,0,0,1,16.5,3H4.5A4.5,4.5,0,0,1,0-1.5v-9.75A2.25,2.25,0,0,1,2.25-13.5h3ZM7.5-13.5h6v-2.25a3,3,0,0,0-3-3,3,3,0,0,0-3,3ZM6.375-9A1.122,1.122,0,0,0,7.5-10.125,1.122,1.122,0,0,0,6.375-11.25,1.122,1.122,0,0,0,5.25-10.125,1.122,1.122,0,0,0,6.375-9Zm8.25-2.25A1.122,1.122,0,0,0,13.5-10.125,1.122,1.122,0,0,0,14.625-9a1.122,1.122,0,0,0,1.125-1.125A1.122,1.122,0,0,0,14.625-11.25Z" transform="translate(0 21)" fill="#231f20"/>
+                                </svg>
+                                </span>
+                                <span class="navUser-item-cartLabel">{{lang 'common.cart'}}</span>
+                                <span class="countPill cart-quantity"></span>
+                            </a>
+
+                            <div class="dropdown-menu" id="cart-preview-dropdown" data-dropdown-content
+                                aria-hidden="true"></div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<script>
+    const overlay = document.querySelector(".overlay");
+    const body = document.querySelector("body");
+    const menuBtn = document.querySelector(".menu-btn");
+    const menuItems = document.querySelector(".menu-items");
+    const expandBtn = document.querySelectorAll(".expand-btn");
+    const grandChildrenMenus = document.querySelectorAll('.menu-children-btn')
+
+    function toggle() {
+        // disable overflow body
+        body.classList.toggle("overflow");
+        // dark background
+        overlay.classList.toggle("overlay--active");
+        // add open class
+        menuBtn.classList.toggle("open");
+        menuItems.classList.toggle("open");
+    }
+
+    menuBtn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        toggle();
+    });
+
+    window.onkeydown = function (event) {
+        const key = event.key; // const {key} = event; in ES6+
+        const active = menuItems.classList.contains("open");
+        if (key === "Escape" && active) {
+            toggle();
+        }
+    };
+
+    document.addEventListener("click", (e) => {
+        let target = e.target,
+            its_menu = target === menuItems || menuItems.contains(target),
+            its_hamburger = target === menuBtn,
+            menu_is_active = menuItems.classList.contains("open");
+        if (!its_menu && !its_hamburger && menu_is_active) {
+            toggle();
+        }
+    });
+
+    // mobile menu expand
+    expandBtn.forEach((btn) => {
+        btn.addEventListener("click", () => {
+            btn.classList.toggle("open");
+            if(btn.id == 'catalogue_link'){
+                btn.parentNode.querySelector('#catalogue_items').classList.toggle("open");
+            }
+        });
+    });
+    
+    grandChildrenMenus.forEach((gcMenu) => {
+        gcMenu.addEventListener("click", ()=>{
+            gcMenu.classList.toggle("open");
+            gcMenu.parentNode.querySelector('.mega-menu-grandchildren').classList.toggle("open");
+        })
+    })
+    
+    //catalogue hover
+    const catalogue_link = document.getElementById('catalogue_link');
+    const catalogue_items = document.getElementById('catalogue_items');
+    
+    catalogue_link.addEventListener('mouseenter', addClassCatalogue);
+     catalogue_link.addEventListener('mouseleave', addClassCatalogue);
+    //   catalogue_link.addEventListener('click', addClassCatalogue);
+    function addClassCatalogue(){
+        catalogue_link.classList.toggle('open');
+        catalogue_items.classList.toggle('open');
+        console.log("asdasd", catalogue_link.parentNode.querySelector('#catalogue_items'));
+    }
+
+
+
+// catalogue children's children hover
+    const non_first_index_menu_items = document.querySelectorAll('.menu-item-non-first-index');
+    const first_index_menu_item = document.querySelector('.index-first');
+
+    non_first_index_menu_items.forEach(non_first_index_menu_item => {
+      non_first_index_menu_item.addEventListener('mouseenter', () => {
+            first_index_menu_item.classList.add('hide-menu');
+      });
+      non_first_index_menu_item.addEventListener('mouseleave', () => {
+        first_index_menu_item.classList.remove('hide-menu');
+      });
+    });
+
+</script>

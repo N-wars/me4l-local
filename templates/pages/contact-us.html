@@ -1,0 +1,47 @@
+{{#partial "page"}}
+
+{{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
+
+<section class="page contact-us-section">
+    <div class="container">
+        <div class="title-container">
+            <h2>{{page.title}}</h2>
+        </div>
+        <div id="contact-us-page" class="contact-us-form-container">
+            {{#if forms.contact.success}}
+            <div id="contact-us-success">{{{lang 'forms.contact_us.successful' shopPath=urls.home}}}</div>
+            {{else}}
+            <div class="form-container grid grid-col-2-desktop grid-col-1-tablet grid-col-1-mobile">
+                <div class="form-wrapper grid-item">
+                    <div class="sub-heading-cotainer">
+                        <h3>Send Message</h3>
+                    </div>
+                    {{> components/page/contact-us-form}}
+                </div>
+                <div class="contact-info-wrapper grid-item">
+                    <div class="sub-heading-cotainer">
+                        <h3>Get In Touch</h3>
+                    </div>
+                    <div class="conatct-info">
+                        {{{region name="vertical_blocks_contact_info"}}}
+                    </div>
+                </div>
+            </div>
+            {{/if}}
+
+        </div>
+    </div>
+</section>
+
+<section class="map-container">
+     {{{region name="embed_map_region"}}}
+</section>
+
+{{/partial}}
+
+{{> layout/base}}
+
+<script>
+const mainContent = document.getElementById('main-content');
+mainContent.removeAttribute('style');
+</script>

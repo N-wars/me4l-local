@@ -1,0 +1,94 @@
+<style>
+    .page-dropdown {
+        display: none;
+    }
+
+    .page-menu-item:hover .page-dropdown {
+        display: block;
+    }
+</style>
+
+<div class="navbar">
+    <div class="menu-btn">
+        <div class="menu-btn__lines"></div>
+    </div>
+    <ul class="menu-items">
+        <li>
+            <a href="#" id="catalogue_link" class="menu-item first-item expand-btn">Catalogue</a>
+
+            <div class="mega-menu sample cat-1" id ="catalogue_items">
+                <div class="sub-menu-1">
+                    <ul class="menu-items menu-children">
+                        {{#each categories}}
+                        {{#if children}}
+                        <li class="menu-item-list {{#if @index '!=' 0}}menu-item-non-first-index{{/if}}">
+                            <a href="{{url}}"
+                                class="menu-item first-item expand-btn menu-children-btn {{#if is_active}} activePage{{/if}}">{{name}}</a>
+                            <div
+                                class="mega-menu mega-menu-grandchildren sample cat-two {{#if @index '!=' 0}}hide-menu non-index-first {{else}} index-first{{/if}}">
+                                <div class="menu-grandchildren">
+                                    <div class="col image-col">
+                                        {{#if image}}
+                                        <section>
+                                            <a href="{{url}}" aria-label="{{name}}" class="img-wrapper"><span
+                                                    class="img"><img src="{{getImage image 'thumbnail'}}"
+                                                        alt="{{name}}" /></span></a>
+                                        </section>
+                                        {{/if}}
+                                    </div>
+                                    <div class="col menu-col">
+                                        <div class="mega-menu sample mega-menu-greatgrandchildren">
+                                            <div class="menu-title-container">
+                                                <section>
+                                                    <div class="menu-title bold">{{name}}</div>
+                                                </section>
+                                            </div>
+                                            <div class="content menu-greatgrandchildren-container">
+                                                {{#each children}}
+                                                <div class="col">
+                                                    <section>
+                                                        <a href="{{url}}"
+                                                            class="menu-title {{#if is_active}} activePage{{/if}}">{{name}}</a>
+                                                        <ul class="mega-links">
+                                                            {{#each children}}
+                                                            <li><a href="{{url}}"
+                                                                    class="menu-item {{#if is_active}} activePage{{/if}}">{{name}}</a>
+                                                            </li>
+                                                            {{/each}}
+                                                        </ul>
+                                                    </section>
+                                                </div>
+                                                {{/each}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        {{else}}
+                        <li><a href="{{url}}"
+                                class="menu-item first-item {{#if is_active}} activePage{{/if}}">{{name}}</a></li>
+                        {{/if}}
+                        {{/each}}
+                    </ul>
+                </div>
+            </div>
+
+        </li>
+        {{#each pages}}
+        <li class="page-menu-item  {{#if children}}expand-btn{{/if}}"><a href="{{#if children}}#{{else}}{{url}}{{/if}}" aria-label="{{name}}"
+                class="menu-item first-item {{#if name '==' ../page.title}} activePage{{/if}}"> {{name}}</a>
+            {{#if children}}
+            <ul class="page-dropdown">
+                {{#each children}}
+                <li class="page-sub-menu-item">
+                    <a class="page-sub-menu-action {{#if name '==' ../page.title}} activePage{{/if}}"
+                        href="{{url}}">{{name}}</a></li>
+                {{/each}}
+            </ul>
+            {{/if}}
+        </li>
+        {{/each}}
+    </ul>
+</div>
+<div class="overlay"></div>

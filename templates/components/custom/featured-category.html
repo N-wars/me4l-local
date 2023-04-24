@@ -1,0 +1,23 @@
+<section class="featured-category-section featured-category-container">
+    <div class="container">
+        <div class="title-container text-center">
+            <h2>Categories</h2>
+        </div>
+        <div class="categories-container grid grid-col-5-desktop grid-col-3-tablet grid-col-2-mobile">
+            {{#each categories}}
+            <div class="categories-item grid-item">
+                <div class="card-container card">
+                    <div class="card-image-container">
+                        <a href="{{url}}" aria-label="{{name}}">
+                            <img src="{{getImage image 'thumbnail'}}" alt="{{name}}">
+                        </a>
+                    </div>
+                    <div class="card-body">
+                        <span class="bold">{{name}}</span>
+                    </div>
+                </div>
+            </div>
+            {{/each}}
+        </div>
+    </div>
+</section>

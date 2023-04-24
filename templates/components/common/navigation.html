@@ -1,0 +1,36 @@
+<div class="nav-container">
+    <div class="container">
+        <div class="navUser">
+            <div class="notice-board-container">
+                {{{region name="one_line_text_region--global"}}}
+            </div>
+            <div class="organization-details-container">
+                {{#if settings.phone_number}}
+                <div class="phone-number">
+                    <a href="tel:{{settings.phone_number}}" aria-label="organization contact number">
+                    <span class="svg-container"><svg xmlns="http://www.w3.org/2000/svg" width="15.999" height="16.001"
+                            viewBox="0 0 15.999 16.001">
+                            <path id="Path_113" data-name="Path 113"
+                                d="M15.975-1.906l-.727,3.15A.971.971,0,0,1,14.3,2,14.313,14.313,0,0,1,0-12.3a.971.971,0,0,1,.757-.952l3.15-.727a.981.981,0,0,1,1.118.566l1.454,3.391A.978.978,0,0,1,6.2-8.879L4.516-7.528A10.927,10.927,0,0,0,9.5-2.544l1.378-1.681a.972.972,0,0,1,1.14-.28l3.391,1.453A1.066,1.066,0,0,1,15.975-1.906Z"
+                                transform="translate(0 14)" fill="#fff" />
+                        </svg></span>
+                    <p>{{settings.phone_number}}</p>
+                    </a>
+                </div>
+                {{/if}}
+                {{#if settings.address}}
+                <div class="address">
+                    <span class="svg-container"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="12"
+                            viewBox="0 0 16 12">
+                            <path id="Path_114" data-name="Path 114"
+                                d="M8-3a2.389,2.389,0,0,1-1.474-.513L0-8.587V-1.5A1.5,1.5,0,0,0,1.5,0h13A1.5,1.5,0,0,0,16-1.5V-8.587L9.475-3.509A2.407,2.407,0,0,1,8-3ZM.509-9.459,7.14-4.3a1.4,1.4,0,0,0,1.721,0l6.631-5.159A1.412,1.412,0,0,0,16-10.5,1.5,1.5,0,0,0,14.5-12H1.5A1.5,1.5,0,0,0,0-10.5,1.319,1.319,0,0,0,.509-9.459Z"
+                                transform="translate(0 12)" fill="#fff" />
+                        </svg>
+                    </span>
+                    <p>{{nl2br settings.address}}</p>
+                </div>
+                {{/if}}
+            </div>
+        </div>
+    </div>
+</div>
