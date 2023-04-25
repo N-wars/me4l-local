@@ -7,11 +7,14 @@
             {{#each categories}}
             <div class="categories-item grid-item">
                 <div class="card-container card">
+
+                    {{#if image}}
                     <div class="card-image-container">
                         <a href="{{url}}" aria-label="{{name}}">
                             <img src="{{getImage image 'thumbnail'}}" alt="{{name}}">
                         </a>
                     </div>
+                    {{/if}}
                     <div class="card-body">
                         <span class="bold">{{name}}</span>
                     </div>
