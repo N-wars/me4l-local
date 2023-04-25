@@ -1797,15 +1797,30 @@ h3.footer-info-heading {
     opacity: .5;
 }
 
+//CSS for header navigation/login/cart
 
+.navbar .page-menu-item:hover  {
+    .page-dropdown {
+        border: 0;
+        padding: 17px 50px;
+        border-radius: 0 0 0 20px;
+        box-shadow: 0px -20px 13px -6px rgba(27,117,118,0.1);
+        margin-right: -5px;
 
+        .page-sub-menu-item {
+            padding: 25px 0;
 
-// scss latest
-//another test
-
-
-
-//CSS for login
+            a svg {
+                width: 10px;
+                height: 16px;
+                fill: #1B75BC;
+                margin-left: 16px;
+                position: relative;
+                top: 2px;
+            }
+        }
+    }
+}
 
 .container-md {
     max-width: 768px;
