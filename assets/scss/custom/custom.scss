@@ -1744,33 +1744,6 @@ h3.footer-info-heading {
     opacity: .5;
 }
 
-
-//CSS for login
-
-.container-md {
-    max-width: 768px;
-}
-
-
-.login  {
-    margin-bottom: 0;
-    
-    .form-actions {
-       display: flex;
-       align-items: center;
-       justify-content: starts;
-    }
-    
-    .login-form {
-        padding-right:80px ;
-    }
-    
-}
-
-.form-label {
-    font-size: 1.6rem;
-}
-
 //responsive css
 
 @media all and (max-width: 1600px) {
@@ -2035,3 +2008,31 @@ h3.footer-info-heading {
 
 // scss latest
 //another test
+
+
+
+//CSS for login
+
+.container-md {
+    max-width: 768px;
+}
+
+
+.login  {
+    margin-bottom: 0;
+    
+    .form-actions {
+       display: flex;
+       align-items: center;
+       justify-content: starts;
+    }
+    
+    .login-form {
+        padding-right:80px ;
+    }
+    
+}
+
+.form-label {
+    font-size: 1.6rem;
+}
