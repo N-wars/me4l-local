@@ -7,6 +7,9 @@
 .mb-20 {
     margin-bottom: 20px;
 }
+.page .body {
+    margin-top: 0;
+}
 
 body.page {
     margin: 0; 
@@ -25,7 +28,7 @@ section.page {
 }
 .page-content {
     p {
-        margin-bottom: 40px
+        margin-bottom: 30px
     }
     h3 {
         color: #1b75bc;
@@ -251,8 +254,9 @@ p:last-child {
 }
 table{
     th,td {
-        padding-right: 8px;
-        padding-left: 8px;
+        padding-right: 16px;
+        padding-top: 8px;
+        padding-bottom: 8px;
     }
 }
 //  ------------------------------------- global  css   ends-------------------------------------
@@ -620,7 +624,7 @@ ol.breadcrumbs {
             max-height: initial;
             overflow-y: auto;
             width: 50%;
-            top: 46px;
+            top: 0;
             left: 0;
             background: #fcfcfc;
             display: block;
@@ -649,7 +653,7 @@ ol.breadcrumbs {
         }
 
         .menu-item.first-item {
-            padding: 1rem 1rem;
+            padding: 1rem 1.5rem;
         }
 
         /* DROPDOWN, MEGA MENUS */
@@ -660,7 +664,7 @@ ol.breadcrumbs {
             opacity: 1;
             top: 4rem;
             visibility: visible;
-            margin-left: -18px;
+            margin-left: 0;
             width: auto;
             max-height: 0;
             transform: scaleX(0);
@@ -1081,7 +1085,7 @@ ol.breadcrumbs {
         .column-item {
             .card-container {
                 background: white;
-                box-shadow: 0 0 15px -8px black;
+                box-shadow: 0 0 15px -8px #1b75bc;
                 border-radius: 20px;
                 padding: 40px;
                 margin-bottom: 0;
@@ -1491,6 +1495,31 @@ section.page{
     padding: 0 !important;
 }
 
+    .image-banner-container {
+        .hero-content {
+            p {
+                position: relative;
+                &:not(:first-child) {
+                    padding-left: 10px;
+                    margin-left: 20px;
+                    &:before {
+                        content: '';
+                        background: url(../img/arrow-down-blue.png) no-repeat;
+                        width: 12px;
+                        height: 12px;
+                        position: absolute;
+                        left: 0;
+                        top: 8px;
+                        opacity: 1;
+                        transform: rotate(-90deg);
+                        background-size: 10px;
+                    }
+                }
+            }
+        }
+    }
+
+
 // Contact page
 
 .contact-us-section {
@@ -1511,8 +1540,9 @@ section.page{
         .vertical-block-wrapper {
             &:not(:last-child) {
                 margin-bottom: 32px;
+                border-bottom: 1px solid #c7c7c7;
             }  
-           border-bottom: 1px solid #c7c7c7;
+           
                max-width: 391px;
             
             .heading {
@@ -1551,9 +1581,21 @@ section.page{
 
 
 //generic pages 
-
+.page-content {
+    h3,h4 {
+        margin-bottom: 16px;
+    }
+    ul {
+        margin-bottom: 16px;
+        li {
+            &:not(:last-child) {
+                margin-bottom: 5px;
+            }
+        }   
+    }
+}
 // --- privacy
-.privacy-policy_, .our-warranty-and-guarantee_ {
+.privacy-policy_, .our-warranty-and-guarantee_, .shipping-returns_ {
     .page-content {
         h3 {
         &:not(:first-child) {
@@ -1564,15 +1606,7 @@ section.page{
     }
 }
 
-.page-content {
-    ul {
-        li {
-            &:not(:last-child) {
-                margin-bottom: 5px;
-            }
-        }   
-    }
-}
+
 .privacy-ul-list {
     list-style: none;
     padding: 000000;
@@ -1583,10 +1617,16 @@ section.page{
 
 .terms-conditions_ {
     .page-content {
-        h3 {
-        &:not(:first-child) {
-            border-top: 0px solid #C7C7C7;
-            padding-top: 0px;
+        // h3 {
+        // &:not(:first-child) {
+        //     border-top: 0px solid #C7C7C7;
+        //     padding-top: 0px;
+        //     }
+        // }
+        p {
+            strong {
+                font-size: 24px;
+                line-height: 34px;
             }
         }
     }
@@ -1598,8 +1638,7 @@ section.page{
 .faq-table{
     margin-top: 50px;
     th,td {
-        padding-right: 8px;
-        padding-left: 8px;
+        padding-right: 16px;
     }
 }
     
@@ -1616,7 +1655,22 @@ section.page{
         margin-bottom: 16px;
     }
 }
+.parts-accessories-logo {
+    img {
+        min-height: 210px;
+        object-fit: contain;
+        max-height: 210px;
+        margin-bottom: 16px;
+    }
+    p>img {
+        min-height: auto;
+    }
+}
 
+//shipping returns 
+.content-order-list {
+    margin-bottom: 16px;
+}
 
 @media all and (min-width: 767px) {
         .contact-us-section {
@@ -1743,266 +1797,7 @@ h3.footer-info-heading {
     opacity: .5;
 }
 
-//responsive css
 
-@media all and (max-width: 1600px) {
-    
-    //header
-    .header {
-        .header-container {
-            .logo-container {
-                a {
-                    .header-logo-image-container {
-                         width: 215px;
-                    }
-                }
-            }
-             .main-menu-container {
-                width: 60%;
-                .icon-menu-container {
-                    .navUser-section {
-                        .navUser-item {
-                            .header-icon-container {
-                                padding: 15px 20px;
-                                .svg-container {
-                                        margin-bottom: 5px;
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            } 
-
-        .nav-container {
-            .navUser {
-                .notice-board-container {
-                    p {
-                        font-weight: 700;
-                        font-size: 16px;
-                        line-height: 29px;
-                    }
-                    .organization-details-container {
-                        p {
-                            font-size: 16px;
-                        }
-                    }
-                }
-            }
-         }
-    }
-    
-    //megamenu navbar
-    
-    .navbar { 
-        .menu-items { 
-            li { 
-                &:not(:last-child) {
-                    margin-right: 10px;
-                }
-                .mega-menu { 
-                    .sub-menu-1  { 
-                        ul.menu-items {
-                            .menu-item-list {
-                                .mega-menu-grandchildren.cat-two {
-                                    padding: 40px 0 60px;
-                                        overflow-y: scroll;
-                                        height: 100%;
-                                        min-height: 400px;
-                                        overflow-x: hidden;
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
-        
-    }
-    .navbar ul li:not(:last-child) {
-        margin-right: 10px;
-    }
-    .navbar ul li a {
-        font-size: 16px;
-    }
-}
-@media all and (max-width: 1399px) {
-    
-    
-    //globalcss
-    h2 {
-        font-size: 40px;
-        line-height: 48px;
-    }
-    
-    //banner 
-    .heroCarousel-slide .heroCarousel-content .heroCarousel-title {
-        font-size: 54px;
-        line-height: 64px;
-    }
-    
-}
-@media all and (max-width: 1199px) {
-    
-    //header
-    
-    .header {
-        .nav-container {
-            .navUser {
-                padding: 5px 0 4px;
-                position: relative;
-                right: auto;
-                top: auto;
-                transform: none;
-                z-index: 50;
-                .notice-board-container {
-                    width: 100%;
-                    text-align: center;
-                }
-                .organization-details-container {
-                    width: 100%;
-                    justify-content: center;
-                        
-                    p {
-                        font-size: 16px;
-                        line-height: 24px;
-                    }
-                    .phone-number {
-                        width: auto;
-                    }
-                    .address {
-                        width: auto;
-                    }
-                }
-            }
-        }
-        .header-container {
-            .search-container {
-                width: auto;
-            }
-            .main-menu-container {
-                width: auto;
-            }
-        }
-    }
-    .grid {
-        &.grid-col-2-tablet {
-            margin: -10px;
-            .grid-item {
-                width: 50%;
-                padding: 10px;
-            }
-        }
-        &.grid-col-3-tablet {
-            margin: -10px;
-            .grid-item {
-                width: 33.33%;
-                padding: 10px;
-            }
-        }
-        &.grid-col-4-tablet {
-            margin: -10px;
-            .grid-item {
-                width: 25%;
-                padding: 10px;
-            }
-        }
-    }
-    
-    
-}
-@media all and (max-width: 1199px) {
-    //nav mega menu mobile navigation
-    .navbar {
-        .menu-items {
-            li {
-                .menu-item{
-                    &.open {
-                        
-                    }
-                }
-                .mega-menu {
-                            &.cat-1.open {
-                                .sub-menu-1 {
-                                    .menu-items {
-                                        &.menu-children {
-                                            position: relative !important;
-                                            background: #ffffff;
-                                            width: 100%;
-                                            top: 0;
-                                            padding-left: 10px;
-                                            transform: unset;
-                                            .menu-item-list {
-                                                .mega-menu-grandchildren {
-                                                    transform: unset;
-                                                    .menu-grandchildren {
-                                                            width: 100%;
-                                                            flex-wrap: wrap;
-                                                            .col {
-                                                                &.image-col {
-                                                                    width: 100%;
-                                                                    img {
-                                                                        width: 100%;
-                                                                    }
-                                                                }
-                                                                &.menu-col {
-                                                                    width: 100%;
-                                                                    .mega-menu-greatgrandchildren {
-                                                                            overflow: visible;
-                                                                            transform: unset;
-                                                                            margin-left: 0;
-                                                                            .col {
-                                                                                width: calc(50% - 16px);
-                                                                            }
-                                                                    }
-                                                                }
-                                                            }
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        }
-            }
-        }
-    }
-}
-@media all and (max-width: 992px) {
-    //header 
-    .header {
-        height: auto;
-    }
-    
-}
-@media all and (max-width: 767px) {
-    .grid {
-        &.grid-col-1-mobile {
-            margin: -10px;
-            .grid-item {
-                width: 100%;
-                padding: 10px;
-            }
-        }
-        &.grid-col-2-mobile {
-            margin: -10px;
-            .grid-item {
-                width: 50%;
-                padding: 10px;
-            }
-        }
-        &.grid-col-3-mobile {
-            margin: -10px;
-            .grid-item {
-                width: 33.33%;
-                padding: 10px;
-            }
-        }
-        
-    }
-    
-}
 
 
 // scss latest

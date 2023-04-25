@@ -1,0 +1,10 @@
+{
+  "customLayouts": {
+    "brand": {},
+    "category": {},
+    "page": {"about-us-layout.html":"/about-us"},
+    "product": {}
+  },
+  "normalStoreUrl": "https://marineengines4less.mybigcommerce.com/",
+  "port": 3000
+}
