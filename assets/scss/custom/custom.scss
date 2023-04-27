@@ -1066,6 +1066,7 @@ ol.breadcrumbs {
                 }  
                 .card-body {
                     text-align: center;
+                    
                 }
             }
         }
@@ -1321,6 +1322,9 @@ ol.breadcrumbs {
 
 
 //Featured Product section
+.card-figcaption-body {
+    display: none;
+}
 
 //for overall product grid
 
@@ -1342,6 +1346,10 @@ ol.breadcrumbs {
             .card-body {
                 padding: 16px 10px 40px;
                 text-align: center;
+                .card-title {
+                    line-height: 32px;
+                    margin-bottom: 0px;
+                }
             }
         }
     }
