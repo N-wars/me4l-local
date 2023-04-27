@@ -1333,6 +1333,10 @@ ol.breadcrumbs {
             border-radius: 20px;
             box-shadow: 0px 0px 13px -9px black;
             overflow: hidden;
+            .card-img-container{
+                max-width: 288px;
+                height: 288px;
+            }
             .card-body {
                 padding: 16px 10px 40px;
                 text-align: center;
