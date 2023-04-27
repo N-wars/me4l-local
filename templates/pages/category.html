@@ -10,6 +10,7 @@ featured:
 top_sellers:
     limit: {{theme_settings.homepage_top_products_count}}
 ---
+
 {{inject "categoryProductsPerPage" theme_settings.categorypage_products_per_page}}
 {{#partial "head"}}
 {{#if pagination.category.previous}}
@@ -23,55 +24,9 @@ top_sellers:
 {{#partial "page"}}
     {{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
 
-<section class="sub-menu-container">
-    <div class="container">
-        {{assignVar 'categoryId' category.id}}
-        {{#each categories }}
-        {{#if id '===' getVar 'categoryId'}}
-        {{name}}
-        {{#each children }}
-        {{#if children }}
-        <div class="subcategories-container">
-            <div class="title-container">
-                <h2>{{name}}</h2>
-            </div>
-            <div class="subcategories-link">
-                <a href="{{url}}" class="cat-link">View All</a>
-            </div>
-            {{#if children}}
-            <div class="grid grid-col-6-desktop subcategories-children-container">
-                {{#each children}}
-                <div class="sub-item grid-item">
-                    <div class="card-container card">
-                        <div class="card-image-container">
-                            <a href="{{url}}" aria-label="{{name}}">
-                                <img src="{{getImage image 'thumbnail'}}" alt="{{name}}">
-                            </a>
-                        </div>
-                        <div class="card-body">
-                            <span class="bold">{{name}}</span>
-                        </div>
-                    </div>
-                </div>
-                {{/each}}
-            </div>
-            {{/if}}
-        </div>
-        {{else}}
-        <div class="subcategories-container">
-            <div class="title-container">
-                <h2>{{name}}</h2>
-            </div>
-            <div class="subcategories-link">
-                <a href="{{url}}" class="cat-link">View All</a>
-            </div>
-        </div>
-        {{/if}}
-        {{/each}}
-        {{/if}}
-        {{/each}}
-    </div>
-</section>
+{{> components/custom/sub-categories categoryId = category.id}}
+
+
 
 <div class="page">
     <div class="container">
