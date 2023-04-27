@@ -14,21 +14,44 @@
             "infinite": false,
             "mobileFirst": true,
             "slidesToShow": 5,
-            "slidesToScroll": 5,
+            "slidesToScroll": 1,
+            "dots": true,
+            "touchMove": true,
             "slide": "[data-product-slide]",
             "responsive": [
+            {
+                "breakpoint": 1600,
+                "settings": {
+                    "slidesToShow":5,
+                    "slidesToScroll":1
+                }
+            },
+            {
+                "breakpoint": 1199,
+                "settings": {
+                    "slidesToShow":4,
+                    "slidesToScroll":1
+                }
+            },
                 {
-                    "breakpoint": 800,
+                    "breakpoint": 992,
                     "settings": {
-                        "slidesToShow":5,
-                        "slidesToScroll":5
+                        "slidesToShow":3,
+                        "slidesToScroll":1
                     }
                 },
                 {
-                    "breakpoint": 550,
+                    "breakpoint": 600,
                     "settings": {
-                        "slidesToShow": 3,
-                        "slidesToScroll": 3
+                        "slidesToShow":2,
+                        "slidesToScroll":1
+                    }
+                },
+                {
+                    "breakpoint": 200,
+                    "settings": {
+                        "slidesToShow": 1,
+                        "slidesToScroll": 1
                     }
                 }
             ]
