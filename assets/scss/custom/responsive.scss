@@ -152,11 +152,25 @@
         font-size: 54px;
         line-height: 64px;
     }
+    //navbar
+    .navbar .menu-items li:not(:last-child) {
+        margin-right: 8px;
+    }
+    .menu-item.first-item {
+        padding: 15px 15px;
+    }
 
     //header 
 
     .header {
         .header-container {
+            .logo-container {
+                a {
+                    .header-logo-image-container {
+                        width: 175px;
+                    }
+                }
+            }
             .main-menu-container {
                 .icon-menu-container {
                     .navUser-section {
@@ -704,6 +718,19 @@
     .menu-items li:first-child {
         margin-top: 80px;
     }
+    .menu-items li.page-sub-menu-item:first-child {
+        margin-top: 10px;
+    }
+    .navbar .page-menu-item:hover .page-dropdown .page-sub-menu-item {
+        padding: 0;
+    }
+    .navbar .page-menu-item:hover .page-dropdown {
+        margin-right: 0;
+    }
+
+
+
+
     body.overflow {
         header {
             .header-container {
