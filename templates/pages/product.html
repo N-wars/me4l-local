@@ -20,7 +20,7 @@ product:
     {{/each}}
 
     <div>
-        {{> components/products/product-view}}
+        {{> components/custom/product/main-product}}
 
         {{{region name="product_below_content"}}}
 
@@ -32,7 +32,42 @@ product:
             {{> components/products/reviews reviews=product.reviews product=product urls=urls}}
         {{/all}}
 
-        {{> components/products/tabs}}
+        <div class="related-product-and-desciption-container">
+            <div class="container">
+                <div class="rpd-wrapper grid grid-col-2-desktop">
+                    <div class="produt-description-container grid-item">
+                        {{#if product.description}}
+                        <div class="title-container">
+                            <h2>{{lang 'products.description'}}</h2>
+                        </div>
+                        <div class="product-description">
+                            {{{product.description}}}
+                        </div>
+                        {{/if}}
+                    </div>
+                    <div class="related-product-container grid-item">
+                        <div class="product-common-info">
+                         {{{region name="product_common_info_region--global"}}}
+                        </div>
+                        {{#if product.related_products}}
+                        <div class="rp-wrapper">
+                        {{> components/custom/product/related-product}}
+                        </div>
+                        {{/if}}
+                        <div class="product-sale-banner">
+                         {{{region name="product_sale_banner_region--global"}}}
+                        </div>
+                    </div>
+                </div>
+             </div>
+        </div>
+        {{#if product.similar_by_views}}
+        <div class="customer-also-brought-container">
+            <div class="cab-wrapper">
+                {{> components/products/carousel products=product.similar_by_views columns=5 list="Customers Also Viewed"}}
+            </div>
+        </div>
+        {{/if}}
     </div>
 
     {{> components/products/schema}}
