@@ -1816,6 +1816,12 @@ section.page{
     margin-bottom: 16px;
 }
 
+
+//product detail page 
+.product-gallery-section {
+    background-color: #F9F9F9;
+}
+
 @media all and (min-width: 767px) {
         .contact-us-section {
             .form-wrapper {
@@ -1953,7 +1959,8 @@ h3.footer-info-heading {
 
 .slick-next, .slick-prev,
 .slick-next:hover, .slick-prev:hover{
-    background-color: #1B75BC50;
+    background-color: #1B75BC;
+    opacity: .5;
 }
 .slick-disabled {
     cursor: default;
@@ -1966,7 +1973,7 @@ h3.footer-info-heading {
     .slick-prev:hover::before, .slick-next:hover::before {
         background-image: url(../icons/white-arrow-svg.svg);
         background-size: 7px;
-        height: 20px;
+        height: 18px;
         transform: unset;
     }
     .slick-next {
@@ -1980,14 +1987,19 @@ h3.footer-info-heading {
     .slick-prev::before,.slick-prev:hover::before {
         transform: rotate(180deg);
     }
+    
     .slick-next:hover, .slick-next:focus, .slick-prev:hover, .slick-prev:focus {
-        background-color: #1B75BC50;
+        background-color: #1B75BC;
     }
     .slick-next, .slick-prev {
         margin-top: -50px;
     }
 
-    
+}
+.heroCarousel {
+    .slick-next, .slick-prev, .slick-next:hover, .slick-prev:hover {
+        background-color: #fff !important;
+    }
 }
 @media (min-width: 1850px) {
     .productGrid {

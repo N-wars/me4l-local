@@ -19,9 +19,10 @@ product:
         {{> components/common/alert/alert-info message}}
     {{/each}}
 
-    <div>
+    <div class="product-main-content">
+        <section class="product-gallery-section">
         {{> components/custom/product/main-product}}
-
+        </section>
         {{{region name="product_below_content"}}}
 
         {{#if product.videos.list.length}}
