@@ -3,7 +3,6 @@
         <h3>{{lang 'products.related_products'}}</h3>
     </div>
     <div class="products-info-container">
- 
         <div class="products-container">
             {{#each product.related_products}}
             <div class="product-wrapper">
@@ -20,15 +19,18 @@
                                 <p><strong>{{name}}</strong></p>
                             </div>
                             <div class="product-price">
-                                <p>{{price.without_tax.formatted}}</p>
+                                {{#if price.non_sale_price_without_tax.formatted}}
+                                <p><span class="compare-price">{{price.non_sale_price_without_tax.formatted}}</span></p>
+                                {{/if}}
+                                {{#if price.without_tax.formatted}}
+                                <p><span class="actual-price">{{price.without_tax.formatted}}</span></p>
+                                {{/if}}
                             </div>
                         </div>
                     </div>
                 </a>
             </div>
             {{/each}}
-
         </div>
     </div>
-
 </div>
