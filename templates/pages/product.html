@@ -63,6 +63,11 @@ product:
         </div>
         {{#if product.similar_by_views}}
         <div class="customer-also-brought-container">
+            <div class="featured-product-title-container text-center">
+                <div class=" title-container">
+                    <h2 class="page-heading logo-design">CUSTOMERS ALSO BOUGHT</h2>
+                </div>
+            </div>
             <div class="cab-wrapper">
                 {{> components/products/carousel products=product.similar_by_views columns=5 list="Customers Also Viewed"}}
             </div>
