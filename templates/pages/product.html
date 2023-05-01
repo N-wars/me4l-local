@@ -38,13 +38,16 @@ product:
                 <div class="rpd-wrapper grid grid-col-2-desktop">
                     <div class="produt-description-container grid-item">
                         {{#if product.description}}
-                        <div class="title-container">
-                            <h2>{{lang 'products.description'}}</h2>
-                        </div>
-                        <div class="product-description">
-                            {{{product.description}}}
+                        <div class="product-description-wrapper">
+                            <div class="title-container">
+                                <h2>{{lang 'products.description'}}</h2>
+                            </div>
+                            <div class="product-description">
+                                {{{product.description}}}
+                            </div>
                         </div>
                         {{/if}}
+                        {{{region name="product_shipping_policy_region--global"}}}
                     </div>
                     <div class="related-product-container grid-item">
                         <div class="product-common-info">
