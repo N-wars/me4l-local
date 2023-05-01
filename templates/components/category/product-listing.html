@@ -1,7 +1,12 @@
 {{inject 'noCompareMessage' (lang 'compare.no_compare')}}
 
 {{#if category.products}}
+<div class="product-listing-heading">
+   
+    <div class="product-sort-container">
     {{> components/products/filter sort=pagination.category.sort}}
+    </div>
+</div>
 
     <div {{#if settings.data_tag_enabled}} data-list-name="Category: {{category.name}}" {{/if}}>
         {{#if theme_settings.product_list_display_mode '===' 'grid'}}
