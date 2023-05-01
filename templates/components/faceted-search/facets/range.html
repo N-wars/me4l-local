@@ -1,42 +1,27 @@
+<link rel='stylesheet' href='https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css'>
+
 <div class="accordion-block">
     {{> components/faceted-search/faceted-search-navigation}}
 
-    <div id="facetedSearch-content--{{dashcase facet}}" class="accordion-content{{#unless start_collapsed}} is-open{{/unless}}">
+    <div id="facetedSearch-content--{{dashcase facet}}"
+        class="accordion-content{{#unless start_collapsed}} is-open{{/unless}}">
         <form id="facet-range-form" class="form" method="get" data-faceted-search-range novalidate>
             <input type="hidden" name="search_query" value="{{search_query}}">
             {{#if this.sort}}
-                <input type="hidden" name="sort" value="{{this.sort}}">
+            <input type="hidden" name="sort" value="{{this.sort}}">
             {{/if}}
             <fieldset class="form-fieldset">
                 <div class="form-minMaxRow">
-                    <div class="form-field">
-                        <input
-                            name="min_price"
-                            placeholder="{{lang 'search.faceted.range.min-placeholder'}}"
-                            min="0"
-                            class="form-input form-input--small"
-                            required
-                            type="number"
-                            value="{{min_price}}"
-                        />
-                    </div>
+                    <input name="min_price" placeholder="{{lang 'search.faceted.range.min-placeholder'}}" min="0"
+                        class="form-input form-input--small" required type="hidden" value="{{min_price}}" />
+                    <input name="max_price" placeholder="{{lang 'search.faceted.range.max-placeholder'}}" min="0"
+                        class="form-input form-input--small" required type="hidden" value="{{max_price}}" />
+                    <div class="price-range-slider">
+                        <p class="range-value">
+                            <input type="text" id="amount" readonly>
+                        </p>
+                        <div id="slider-range" class="range-bar"></div>
 
-                    <div class="form-field">
-                        <input
-                            name="max_price"
-                            placeholder="{{lang 'search.faceted.range.max-placeholder'}}"
-                            min="0"
-                            class="form-input form-input--small"
-                            required
-                            type="number"
-                            value="{{max_price}}"
-                        />
-                    </div>
-
-                    <div class="form-field">
-                        <button class="button button--small" type="submit">
-                            {{lang 'search.faceted.range.update'}}
-                        </button>
                     </div>
                 </div>
 
@@ -45,3 +30,27 @@
         </form>
     </div>
 </div>
+
+
+
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.0/jquery-ui.min.js'></script>
+<script id="rendered-js">
+    $(function () {
+        $("#slider-range").slider({
+            range: true,
+            min: 0,
+            max: 20000,
+            values: [0, 20000],
+            slide: function (event, ui) {
+                $("#amount").val("$" + ui.values[0] + " - $" + ui.values[1]);
+                $('input[name="min_price"]').val(ui.values[0])
+                $('input[name="max_price"]').val(ui.values[1])
+                $('#facet-range-form').submit();
+            }
+        });
+
+        $("#amount").val("$" + $("#slider-range").slider("values", 0) +
+            " - $" + $("#slider-range").slider("values", 1));
+    });
+</script>

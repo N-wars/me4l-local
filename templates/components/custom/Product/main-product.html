@@ -84,7 +84,7 @@
 
         <section class="productView-details product-data">
             <div class="productView-product">
-                <h1 class="productView-title">{{product.title}}</h1>
+                <h1 class="productView-title">{{product.title}}</h1> 
                 {{#if product.brand}}
                 <h2 class="productView-brand">
                     <a href="{{product.brand.url}}"><span>{{product.brand.name}}</span></a>
@@ -139,7 +139,15 @@
                             <div class="productView-info-name upc-label" >{{lang 'products.upc'}}</div>
                             <div class="productView-info-value" data-product-upc>{{product.upc}}</div>
                         </div>
-                        
+                        <div class="common-item " {{#unless product.category}} style="display: none;"
+                        {{/unless}}>
+                            <div class="productView-info-name">Categories:</div>
+                            <div class="productView-info-value">
+                                {{#each product.category}}
+                                 {{{last (split this "/")}}}{{#unless @last}}, {{/unless}}
+                                {{/each}}
+                            </div>
+                        </div>
                         
                         {{#if theme_settings.show_custom_fields_tabs '!==' true}}
                         {{> components/products/custom-fields }}

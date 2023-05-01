@@ -1,5 +1,5 @@
 {{#each product.custom_fields}}
-{{#or (if name '==' 'Categories') (if name '==' 'Tags')}}
+{{#or (if name '==' 'tags') (if name '==' 'Tags')}}
 <div class="common-item">
     <div class="productView-info-name">{{name}}:</div>
     <div class="productView-info-value">{{{value}}}</div>
