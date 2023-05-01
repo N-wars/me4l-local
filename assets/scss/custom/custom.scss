@@ -2351,6 +2351,29 @@ section.page{
             width: auto;
         }
     }
+
+    .estimator-form-input {
+        float: none;
+        width: 100%;
+    }
+
+    .estimator-form-input .form-input, 
+    .estimator-form-input .form-select {
+        height: 60px;
+        border-radius: 0;
+        padding: 15px 20px;
+    }
+
+    .btn-primary, .button--primary {
+        line-height: normal;
+    }
+
+    .coupon-form .form-input, .cart-gift-certificate-form .form-input {
+        width: 85.8%;
+        height: 60px;
+        padding: 15px 20px;
+        height: 63px;;
+    }
 }
 
 // end kc.B--------------------------------------------------------------
@@ -2388,9 +2411,6 @@ h3.footer-info-heading {
     font-weight: bold;
     margin-top: 50px;
 }
-
-
-
 
 
 //  -------------------------------------- slider css --------------------------------------
@@ -2536,5 +2556,158 @@ h3.footer-info-heading {
     line-height: 32px;
     color: #C7C7C7;
     font-weight: 400;
+    }
+}
+
+.page-category {
+    background: transparent linear-gradient(180deg, #FFFFFF 0%, #F9F9F9 100%) 0% 0% no-repeat padding-box;
+    padding-bottom: 64px;
+    margin-bottom: 50px;
+
+    .productGrid .card, .productCarousel .card {
+      border: 1px solid #E6E6E6;
+      margin-bottom: 20px;  
+    }
+
+    .productGrid, .productCarousel {
+        padding-bottom: 0;
+    }
+}
+
+.page-sidebar {
+
+    .inlineList--labels {
+        .facetLabel {
+            background: #1B75BC;
+            border-radius: 10px;
+            font-size: 16px;
+            line-height: 24px;
+            font-weight: 700;
+            color: #fff;
+            padding: 16px;
+
+            .icon {
+                width: 16px;
+                height: 16px;
+                fill: #fff;
+            }
+        }
+    }
+    .facetedSearch-navList {
+        .accordion-nav-clear-holder {
+            margin-bottom: 23px;
+        }
+
+        .accordion--navList .accordion-indicator {
+            fill: #000;
+        }
+        .accordion-block {
+            border: 1px solid #E6E6E6;
+            border-radius: 10px;
+            padding: 25px 50px;
+        }
+
+        .accordion-title {
+            font-weight: 600;
+            font-size: 16px;
+            line-height: 26px;
+            color: #000;
+            text-transform: uppercase;
+        }
+
+        .navList-item .navList-action  {
+            font-weight: 400;
+            font-size: 18px;
+            line-height: 29px;
+            color: #000;
+            padding-left: 3rem;
+            padding-top: 0;
+            margin-bottom: 10px;
+
+            span {
+                color: #C4C4C4;
+            }
+        }
+
+        .navList-action--checkbox::before {
+            width: 26px;
+            height: 26px;
+            border: 1px solid #D4D4D4;
+            border-radius: 5px;
+        }
+
+        .navList-action--checkbox.is-checked::before, 
+        .navList-action--checkbox.is-selected::before {
+            background: #1B75BC;
+            border: transparent;
+        }
+
+        .navList-action--checkbox.is-checked::after, 
+        .navList-action--checkbox.is-selected::after {
+            color: #fff;
+            background: url(../icons/tick-white.png) no-repeat 3px 3px;
+            width: 24px;
+            height: 24px;
+            background-size: 70%;
+        } 
+
+        .navList-action--checkbox::before, .navList-action--checkbox::after {
+            top: 26%;
+        }
+
+        .facetedSearch-clearLink {
+            right: 30px;
+        }
+
+        .toggleLink-text {
+            width: 2rem;
+            height: 2rem;
+        }
+
+        .facetedSearch-content--rating .navList-action {
+            padding-left: 0;
+        }
+        .ui-widget.ui-widget-content {
+            border: 0;
+        }
+        .ui-widget-header {
+            height: 3px;
+            border: 0;
+            background: #1B75BC;
+            top: 4px;
+        }
+
+        .ui-slider-handle {
+            background: #fff;
+            border: 1px solid #1B75BC;
+            border-radius: 50%;
+        }
+
+        .icon--ratingFull svg {
+            fill: #FCC632;
+        }
+        .icon--ratingFull svg, .icon--ratingEmpty svg {
+            width: 19px;
+            height: 18px;
+        }
+
+        .rating--small {
+            margin-right: 10px;
+        }
+    }
+}
+
+.product-sort-container .actionBar-section{
+    float: right;
+
+    .form-select {
+        height: 3rem;
+    }
+}
+
+
+.pagination {
+    .pagination-list {
+        
     }
 }
