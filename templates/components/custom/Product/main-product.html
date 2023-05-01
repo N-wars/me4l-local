@@ -60,30 +60,67 @@
                 </div>
             </figure>
             <ul class="productView-thumbnails" {{#gt product.images.length 5}} data-slick='{
-                    "infinite": false,
-                    "mobileFirst": true,
-                    "dots": false,
-                    "accessibility": false,
-                    "slidesToShow": 5,
-                    "slidesToScroll": 5
-                }' {{/gt}}>
-                {{#each product.images}}
-                <li class="productView-thumbnail">
-                    <a class="productView-thumbnail-link"
-                        href="{{getImageSrcset this (cdn ../theme_settings.default_image_product) 1x=../theme_settings.zoom_size}}"
-                        data-image-gallery-item
-                        data-image-gallery-new-image-url="{{getImageSrcset this (cdn ../theme_settings.default_image_product) 1x=../theme_settings.product_size}}"
-                        data-image-gallery-new-image-srcset="{{getImageSrcset this use_default_sizes=true}}"
-                        data-image-gallery-zoom-image-url="{{getImageSrcset this (cdn ../theme_settings.default_image_product) 1x=../theme_settings.zoom_size}}">
-                        {{> components/common/responsive-img
-                        image=this
-                        fallback_size=../theme_settings.productview_thumb_size
-                        lazyload=../theme_settings.lazyload_mode
-                        }}
-                    </a>
-                </li>
-                {{/each}}
-            </ul>
+                "infinite": false,
+                "mobileFirst": true,
+                "dots": false,
+                "accessibility": false,
+                "slidesToShow": 5,
+                "slidesToScroll": 5,
+                "responsive": [
+        {
+            "breakpoint": 1600,
+            "settings": {
+                "slidesToShow":5,
+                "slidesToScroll":1
+            }
+        },
+        {
+            "breakpoint": 1199,
+            "settings": {
+                "slidesToShow":4,
+                "slidesToScroll":1
+            }
+        },
+            {
+                "breakpoint": 992,
+                "settings": {
+                    "slidesToShow":3,
+                    "slidesToScroll":1
+                }
+            },
+            {
+                "breakpoint": 600,
+                "settings": {
+                    "slidesToShow":3,
+                    "slidesToScroll":1
+                }
+            },
+            {
+                "breakpoint": 200,
+                "settings": {
+                    "slidesToShow": 2,
+                    "slidesToScroll": 1
+                }
+            }
+        ]
+            }' {{/gt}}>
+            {{#each product.images}}
+            <li class="productView-thumbnail">
+                <a class="productView-thumbnail-link"
+                    href="{{getImageSrcset this (cdn ../theme_settings.default_image_product) 1x=../theme_settings.zoom_size}}"
+                    data-image-gallery-item
+                    data-image-gallery-new-image-url="{{getImageSrcset this (cdn ../theme_settings.default_image_product) 1x=../theme_settings.product_size}}"
+                    data-image-gallery-new-image-srcset="{{getImageSrcset this use_default_sizes=true}}"
+                    data-image-gallery-zoom-image-url="{{getImageSrcset this (cdn ../theme_settings.default_image_product) 1x=../theme_settings.zoom_size}}">
+                    {{> components/common/responsive-img
+                    image=this
+                    fallback_size=../theme_settings.productview_thumb_size
+                    lazyload=../theme_settings.lazyload_mode
+                    }}
+                </a>
+            </li>
+            {{/each}}
+        </ul>
         </section>
 
         <section class="productView-details product-data">
