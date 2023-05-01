@@ -1,0 +1,39 @@
+<div class="realted-product-container">
+    <div class="title-container">
+        <h4>{{lang 'products.related_products'}}</h4>
+    </div>
+    <div class="products-info-container">
+        <div class="products-container">
+            {{#each product.related_products}}
+            <div class="product-wrapper">
+                <a href="{{url}}">
+                    <div class="grid grid-col-2-desktop">
+                        {{#if image}}
+                        <div class=" grid-item">
+                            <div class="product-img-container">
+                                <img src="{{getImageSrcset image 1x=(default fallback_size '160w')}}" alt="{{image.alt}}"
+                                title="{{image.alt}}">
+                            </div>
+                            
+                        </div>
+                        {{/if}}
+                        <div class="grid-item product-content">
+                            <div class="product-name">
+                                <p><strong>{{name}}</strong></p>
+                            </div>
+                            <div class="product-price">
+                                {{#if price.non_sale_price_without_tax.formatted}}
+                                <p><span class="compare-price">{{price.non_sale_price_without_tax.formatted}}</span></p>
+                                {{/if}}
+                                {{#if price.without_tax.formatted}}
+                                <p><span class="actual-price">{{price.without_tax.formatted}}</span></p>
+                                {{/if}}
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            {{/each}}
+        </div>
+    </div>
+</div>

@@ -1,17 +1,22 @@
+{{#each categories}}
 <section class="featured-category-section featured-category-container">
     <div class="container">
         <div class="title-container text-center">
-            <h2>Categories</h2>
+            <h2>{{name}}</h2>
         </div>
+        {{#if children}}
         <div class="categories-container grid grid-col-5-desktop grid-col-3-tablet grid-col-2-mobile">
-            {{#each categories}}
+            {{#each children}}
             <div class="categories-item grid-item">
                 <div class="card-container card">
+
+                    {{#if image}}
                     <div class="card-image-container">
                         <a href="{{url}}" aria-label="{{name}}">
                             <img src="{{getImage image 'thumbnail'}}" alt="{{name}}">
                         </a>
                     </div>
+                    {{/if}}
                     <div class="card-body">
                         <span class="bold">{{name}}</span>
                     </div>
@@ -19,5 +24,7 @@
             </div>
             {{/each}}
         </div>
+        {{/if}}
     </div>
 </section>
+{{/each}}

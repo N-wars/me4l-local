@@ -1,4 +1,8 @@
 {{#each product.custom_fields}}
-<dt class="productView-info-name">{{name}}:</dt>
-<dd class="productView-info-value">{{{value}}}</dd>
+{{#or (if name '==' 'tags') (if name '==' 'Tags')}}
+<div class="common-item">
+    <div class="productView-info-name">{{name}}:</div>
+    <div class="productView-info-value">{{{value}}}</div>
+</div>
+{{/or}}
 {{/each}}
