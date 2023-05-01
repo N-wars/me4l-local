@@ -1,6 +1,8 @@
 ---
 category:
-shop_by_price: true
+    shop_by_price: true
+    subcategories:
+        limit: 3
 products:
     limit: {{theme_settings.categorypage_products_per_page}}
     new:
@@ -24,10 +26,10 @@ products:
 {{#partial "page"}}
     {{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
 
+{{#if category.subcategories}}
 {{> components/custom/sub-categories categoryId = category.id}}
-
-
-
+{{/if}}
+{{#if category.products}}
 <div class="page">
     <div class="container">
       {{#if category.faceted_search_enabled}}
@@ -45,43 +47,50 @@ products:
       </aside>
       {{/if}}
       {{/if}}
+      
       <div class="page-content" id="product-listing-container">
           {{> components/category/product-listing}}
           {{{region name="category_below_content"}}}
       </div>
     </div>
   </div>
+  {{else}}
+  {{#if category.search_error}}
+    <p>{{lang 'search.errorMessage'}}</p>
+   {{/if}}
+{{/if}}
 
-<section class="category-description-container">
-    <div class="container">
-        <div class="grid grid-col-2-desktop category-desciption-wrapper">
-            <div class="grid-item category-desc">
-                <div class="title-container">
-                    <h2>{{category.name}}</h2>
+{{#if category.subcategories}}
+    <section class="category-description-container">
+        <div class="container">
+            <div class="grid grid-col-2-desktop category-desciption-wrapper">
+                <div class="grid-item category-desc">
+                    <div class="title-container">
+                        <h2>{{category.name}}</h2>
+                    </div>
+                    {{#if category.description}}
+                    <div class="text-container">
+                        <p>{{{category.description}}}</p>
+                    </div>
+                    {{/if}}
                 </div>
-                <div class="text-container">
-                    <p>{{{category.description}}}</p>
+                <div class="grid-item category-img-container img--container">
+                    {{#if category.image}}
+                    <div class="img-holder cat-image-wrapper">
+                        <img src="{{getImage category.image 'thumbnail'}}" class="cat-img" />
+                    </div>
+                    {{/if}}
                 </div>
-            </div>
-            <div class="grid-item category-img-container img--container">
-                {{#if category.image}}
-                <div class="img-holder cat-image-wrapper">
-                    <img src="{{getImage category.image 'thumbnail'}}" class="cat-img" />
-                </div>
-                {{/if}}
             </div>
         </div>
-    </div>
-</section>
-{{{region name="multicolumn_category_3column_region--global"}}}
-{{#if products.featured}}
-{{> components/products/featured products=products.featured columns=theme_settings.homepage_featured_products_column_count}}
+    </section>
+    {{{region name="multicolumn_category_3column_region--global"}}}
+    {{#if products.featured}}
+    {{> components/products/featured products=products.featured columns=theme_settings.homepage_featured_products_column_count}}
+    {{/if}}
+    {{{region name="multicolumn_category_4column_region--global"}}}
+    {{{region name="hero_image_category_region--global"}}}
 {{/if}}
-{{{region name="multicolumn_category_4column_region--global"}}}
-{{{region name="hero_image_category_region--global"}}}
-
-
-
 
 
 {{/partial}}
