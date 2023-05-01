@@ -1389,6 +1389,7 @@ ol.breadcrumbs {
             box-shadow: 0px 0px 13px -9px #1b75bc;
             overflow: hidden;
             margin-bottom: 0;
+            border: 1px solid #1b75bc17;
             .card-figure {
                 .card-img-container{
                     max-width: 288px;
@@ -1401,6 +1402,10 @@ ol.breadcrumbs {
                 .card-title {
                     line-height: 32px;
                     margin-bottom: 0px;
+                    display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;  
+  overflow: hidden;
                 }
             }
         }
@@ -1847,6 +1852,10 @@ section.page{
     }
     .cab-wrapper {
         margin-top: 50px;
+        .productCarousel {
+            padding-left: 60px;
+            padding-right: 60px;
+        }
     }
 }
 
@@ -1936,6 +1945,13 @@ section.page{
         .alertBox.productAttributes-message {
             margin-right: 10px;
         }
+        .form-field--increments{
+            margin: 0;
+            .form-label {
+                display: none;
+            }
+        }
+        
         .form-increment{
             border: 1px solid #E6E6E6;
             border-radius: 10px;
@@ -1961,6 +1977,8 @@ section.page{
         }
         .add-to-cart-buttons {
             max-width: 206px;
+            margin: 0;
+            max-height: 72px;
         }
     }
 }
@@ -2082,6 +2100,10 @@ section.page{
 .productView-options .form .add-to-cart-wrapper {
     display: flex;
     align-items: center;
+}
+.icon-item img {
+    object-fit: contain;
+    width: 14px;
 }
 @media (min-width: 1261px) {
     .productView-title {
