@@ -1,6 +1,6 @@
 <div class="realted-product-container">
     <div class="title-container">
-        <h3>{{lang 'products.related_products'}}</h3>
+        <h4>{{lang 'products.related_products'}}</h4>
     </div>
     <div class="products-info-container">
         <div class="products-container">
@@ -9,9 +9,12 @@
                 <a href="{{url}}">
                     <div class="grid grid-col-2-desktop">
                         {{#if image}}
-                        <div class="product-img-container grid-item">
-                            <img src="{{getImageSrcset image 1x=(default fallback_size '160w')}}" alt="{{image.alt}}"
+                        <div class=" grid-item">
+                            <div class="product-img-container">
+                                <img src="{{getImageSrcset image 1x=(default fallback_size '160w')}}" alt="{{image.alt}}"
                                 title="{{image.alt}}">
+                            </div>
+                            
                         </div>
                         {{/if}}
                         <div class="grid-item product-content">
