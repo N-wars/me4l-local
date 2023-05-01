@@ -106,8 +106,12 @@
                 {{/if}}
                 <div class="productView-price">
                     {{#or customer (unless settings.hide_price_from_guests)}}
-                    <span class="compare-price">{{product.price.non_sale_price_without_tax.formatted}}</span><span
-                        class="actual-price">{{product.price.without_tax.formatted}}</span>
+                    {{#if product.price.non_sale_price_without_tax}}
+                    <span class="compare-price">{{product.price.non_sale_price_without_tax.formatted}}</span>
+                    {{/if}}
+                    {{#if product.price.without_tax}}
+                    <span class="actual-price">{{product.price.without_tax.formatted}}</span>
+                    {{/if}}
                     {{else}}
                     {{> components/common/login-for-pricing}}
                     {{/or}}
@@ -316,7 +320,7 @@
 
 {{#if product.price.non_sale_price_without_tax}}
 <script>
-    var jsonObject = JSON.parse({{ jsContext }});
+    var jsonObject = JSON.parse(`{{ jsContext }}`);
     var comparePrice = parseInt(jsonObject['nonSaleProductPrice'])
     var productPrice = parseInt(jsonObject['productPrice'])
     const discount = comparePrice - productPrice;
