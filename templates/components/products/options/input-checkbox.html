@@ -2,7 +2,6 @@
     <label class="form-label form-label--alternate form-label--inlineSmall">
         {{display_name}}:
 
-        {{> components/common/requireness-msg}}
     </label>
     <input type="hidden" name="attribute[{{id}}]" value="{{noValue}}" />
     <div class="form-option-wrapper">
@@ -12,6 +11,7 @@
             name="attribute[{{id}}]"
             id="attribute-check-{{id}}"
             value="{{value}}"
+            data-displayName="{{display_name}}"
             {{#if checked}}
                 checked
                 data-default
