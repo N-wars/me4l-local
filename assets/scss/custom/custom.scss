@@ -1389,7 +1389,7 @@ ol.breadcrumbs {
             box-shadow: 0px 0px 13px -9px #1b75bc;
             overflow: hidden;
             margin-bottom: 0;
-            border: 1px solid #1b75bc17;
+            border: 1px solid #ecf6fd;
             .card-figure {
                 .card-img-container{
                     max-width: 288px;
@@ -1861,9 +1861,17 @@ section.page{
 
 .product-gallery-section {
     background-color: #F9F9F9;
+    .productView-thumbnail {
+        width: auto;
+    }
     .productView-thumbnail-link {
         border: 2px solid #1b75bc;
         border-radius: 5px;
+        height: 118px;
+        max-width: 122px;
+    }
+    .productView-thumbnails img {
+        width: 100%;
     }
     .productView {
         padding: 50px 0;
@@ -1943,7 +1951,8 @@ section.page{
     }
     .add-to-cart-wrapper {
         .alertBox.productAttributes-message {
-            margin-right: 10px;
+            margin: 0;
+            margin-left: 32px;
         }
         .form-field--increments{
             margin: 0;
@@ -1979,7 +1988,12 @@ section.page{
             max-width: 206px;
             margin: 0;
             max-height: 72px;
+            margin-left: 32px;
+            padding: 0px;
         }
+    }
+    .productView-thumbnails {
+        padding: 0 20px;
     }
 }
 .related-product-and-desciption-container {
@@ -2001,6 +2015,13 @@ section.page{
         .produt-description-container {
             width: 70%;
             padding-right: 50px;
+            ul {
+                margin-bottom: 16px;
+            }
+            .product-description-wrapper {
+                border-bottom: 1px solid #c7c7c7;
+                padding-bottom: 50px;
+            }
         }
         .related-product-container {
             width: 30%;
@@ -2088,10 +2109,13 @@ section.page{
             }
         }
     }
-    .product-description {
+    .product-description, .shipping-policy-block-container {
         strong {
             font-size: 24px;
             line-height: 34px;
+        }
+        .heading, .content-container {
+            margin-bottom: 16px;
         }
     }
     }  
@@ -2111,16 +2135,48 @@ section.page{
         line-height: 48px;
     }
 }
+.product-gallery-section .info-container .common-item { 
+    margin-bottom: 25px;
+}
 
+
+//prodcut page shipping description
+[data-content-region="product_shipping_policy_region--global"] {
+    padding-top: 50px;
+}
+[data-sub-layout="55312f9e-48b3-4485-a78c-bb51e40f9dff"] {
+    padding: 0 !important;
+}
+.productView-img-container::after {
+    padding-bottom: 100%;
+}
+.productView-img-container {
+    max-width: 100%;
+}
 
 
 //form 
+#modal-review-form {
+    overflow: scroll;
+}
 
 .writeReview-form {
     .form-input {
         border: 1px solid;
-    border-radius: 10px;
-    height: 44px;
+        border-radius: 10px;
+        height: 53px;
+    }
+    .form-select {
+        height: 53px;
+        background-position: right 1.17143rem top 1.61429rem;
+    }
+    textarea {
+        height: auto !important;
+    }
+    .btn-primary, .button--primary {
+        font-size: 16px;
+        line-height: 20px;
+        max-height: 56px;
     }
 }
 .form-select {
@@ -2140,6 +2196,36 @@ section.page{
     padding: 8px 16px;
     padding-right: 2rem;
 }
+
+
+
+
+
+
+
+.form-prefixPostfix .button {
+    height: auto;
+}
+.discount-container {
+    background: #F81936;
+    padding: 8px 16px;
+    border-radius: 5px;
+    color: white;
+    font-weight: 900;
+    font-size: 18px;
+    line-height: 32px;
+    width: fit-content;
+    margin-bottom: 32px;
+}
+.productView-details {
+    padding-bottom: 16px;
+}
+
+.productView-images {
+    margin-bottom: 0;
+}
+
+
 
 // contact us section
 @media all and (min-width: 767px) {
@@ -2505,7 +2591,7 @@ h3.footer-info-heading {
 }
 
 //productGrid slider
-.productGrid, .productCarousel {
+.productGrid, .productCarousel, .productView-thumbnails {
     .slick-next::before, .slick-prev::before, 
     .slick-prev:hover::before, .slick-next:hover::before {
         background-image: url(../icons/white-arrow-svg.svg);
@@ -2532,6 +2618,11 @@ h3.footer-info-heading {
         margin-top: -50px;
     }
 
+}
+.productView-thumbnails {
+    .slick-next, .slick-prev {
+        margin-top: 0px;
+    }
 }
 .heroCarousel {
     .slick-next, .slick-prev, .slick-next:hover, .slick-prev:hover {
