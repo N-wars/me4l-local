@@ -18,8 +18,8 @@
                         class="form-input form-input--small" required type="hidden" value="{{max_price}}" />
                     <div class="price-range-slider">
                         <div class="range-value">
-                            <span id="min_value">$0</span>
-                            <span id="max_value">$20000</span>
+                            <span id="min_value">0 USD</span>
+                            <span id="max_value">20000 USD</span>
                             <input type="hidden" id="amount" readonly>
                         </div>
                         <div id="slider-range" class="range-bar"></div>
@@ -48,8 +48,8 @@
             values: [min_price, max_price],
             slide: function (event, ui) {
                 $("#amount").val("$" + ui.values[0] + " - $" + ui.values[1]);
-                $("#min_value").text("$" + ui.values[0]);
-                $("#max_value").text("$" + ui.values[1]);
+                $("#min_value").text( ui.values[0] + " USD" );
+                $("#max_value").text( ui.values[1] + " USD" );
                 $('input[name="min_price"]').val(ui.values[0])
                 $('input[name="max_price"]').val(ui.values[1])
                 $('#facet-range-form').submit();

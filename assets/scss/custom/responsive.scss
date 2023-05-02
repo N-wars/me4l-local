@@ -344,6 +344,14 @@
                 padding: 10px;
             }
         }
+
+        &.grid-col-6-desktop {
+            margin: -10px;
+            .grid-item {
+                width: 50%;
+                padding: 10px;
+            }
+        }
     }
 
     //navigation
