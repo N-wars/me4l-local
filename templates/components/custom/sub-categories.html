@@ -2,7 +2,7 @@
     <div class="container">
         {{#each categories }}
         {{#each children }}
-        {{#if id '==' ../this.categoryId}}
+        {{#if this.id '==' 'category.id'}}
         {{name}}
         {{#each children }}
         {{#if children }} 
@@ -12,17 +12,19 @@
             </div>
             <div class="subcategories-link">
                 <a href="{{url}}" class="cat-link">View All</a>
-            </div>
+            </div> 
             {{#if children}}
             <div class="grid grid-col-6-desktop subcategories-children-container">
                 {{#each children}}
                 <div class="sub-item grid-item">
                     <div class="card-container card">
+                        {{#if image}}
                         <div class="card-image-container">
                             <a href="{{url}}" aria-label="{{name}}">
                                 <img src="{{getImage image 'thumbnail'}}" alt="{{name}}">
                             </a>
                         </div>
+                        {{/if}}
                         <div class="card-body">
                             <span class="bold">{{name}}</span>
                         </div>
