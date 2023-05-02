@@ -137,6 +137,12 @@
                     {{> components/products/ratings rating_target=name rating=rating}}
                 </span>
             </p>
+            {{else if hasRating}}
+            <p class="card-text" data-test-info-type="productRating">
+                <span class="rating--small">
+                    {{> components/products/ratings rating_target=name rating=rating}}
+                </span>
+            </p>
         {{/and}}
         {{#if brand.name}}
             <p class="card-text" data-test-info-type="brandName">{{brand.name}}</p>

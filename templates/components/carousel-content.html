@@ -6,6 +6,31 @@
         <p class="heroCarousel-description">{{{text}}}</p>
     {{/if}}
     {{#if button_text}}
-        <a href="{{url}}" aria-label="{{#if this.alt_text.length '!=' 0}}{{this.alt_text}}{{else}}{{lang 'carousel.slide_number' slide_number=(add @index 1)}}{{/if}}, {{button_text}}" class="heroCarousel-action button button--primary button--large">{{{button_text}}}</a>
+         <p id="phone-call-{{@index}}" class="phone-call" style="display: none;">Call Today</p>
+        <a id="btn-text-{{@index}}" href="{{url}}" aria-label="{{#if this.alt_text.length '!=' 0}}{{this.alt_text}}{{else}}{{lang 'carousel.slide_number' slide_number=(add @index 1)}}{{/if}}, {{button_text}}" class="heroCarousel-action button button--primary button--large">{{{button_text}}}</a>
     {{/if}}
 </div>
+
+{{#if button_text}}
+<script>
+    var btn_txt = document.getElementById('btn-text-{{@index}}')
+    if(containsPhoneNumber(btn_txt.textContent)){
+        document.getElementById('phone-call-{{@index}}').style = ""
+        var number = extractPhoneNumber(btn_txt.textContent);
+        btn_txt.href = 'tel:'+number
+    }
+    function containsPhoneNumber(text) {
+  var regex = /^\(\d{3}\) \d{3}-\d{4}$/;
+  return regex.test(text);
+}
+function extractPhoneNumber(text) {
+  var regex = /^\((\d{3})\) (\d{3})-(\d{4})$/;
+  var match = regex.exec(text);
+  if (match) {
+    return match[2] + match[3];
+  } else {
+    return null;
+  }
+}
+</script>
+{{/if}}
