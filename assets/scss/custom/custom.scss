@@ -265,6 +265,9 @@ p:last-child {
     font-size: 18px;
     font-weight: bold;
 }
+.responsive-table {
+    overflow-x: auto;
+}
 table{
     th,td {
         padding-right: 16px;
@@ -292,6 +295,10 @@ table{
 .slick-dots li.slick-active button, .slick-dots li.slick-active button::before {
     height: 15px;
     width: 15px;
+}
+.borderless{
+    border: 0 !important;
+    margin-top: 0 !important;
 }
 //  ------------------------------------- global  css   ends-------------------------------------
 
@@ -627,6 +634,10 @@ ol.breadcrumbs {
         border-radius: 10px;
         background: white;
     }
+
+  
+
+
 
     /* Responsive style */
 
@@ -1731,6 +1742,10 @@ section.page{
 }
     .form-actions {
         text-align: left;
+        margin-top: 0;
+    }
+    .no-text-decoration {
+        color: #C7C7C7;
     }
 }
 [data-sub-layout="b18dce34-a32f-4f9c-8240-b78f35f96286"] {
@@ -1756,6 +1771,21 @@ section.page{
         }   
     }
 }
+@media all and (min-width: 992px) {
+    .page-content {
+        h3 {
+            line-height: 48px;
+        }
+    }
+}
+//faq page 
+@media all and (min-width: 1199px) {
+    .page.faqs_ {
+        h2 {
+            margin-top: 50px;
+        }
+    }
+} 
 // --- privacy
 .privacy-policy_, .our-warranty-and-guarantee_, .shipping-returns_ {
     .page-content {
@@ -1801,6 +1831,7 @@ section.page{
     margin-top: 50px;
     th,td {
         padding-right: 16px;
+        text-align: left;
     }
 }
     
@@ -2000,7 +2031,7 @@ section.page{
             border-left: 1px solid #E6E6E6;
         }
         .add-to-cart-buttons {
-            max-width: 206px;
+            max-width: fit-content;
             margin: 0;
             max-height: 72px;
             margin-left: 32px;
@@ -2032,6 +2063,11 @@ section.page{
             padding-right: 50px;
             ul {
                 margin-bottom: 16px;
+                li>strong {
+                    font-weight: 400;
+                    font-size: 18px;
+                    line-height: 32px;
+                }
             }
             .product-description-wrapper {
                 border-bottom: 1px solid #c7c7c7;
@@ -2168,6 +2204,8 @@ section.page{
 .productView-img-container {
     max-width: 100%;
 }
+
+
 
 
 //form 
@@ -2516,7 +2554,14 @@ h3.footer-info-heading {
     font-weight: bold;
     margin-top: 50px;
 }
-
+.footer {
+    .no-text-decoration {
+        color: white;
+    }
+}
+.no-text-decoration {
+    text-decoration: none;
+}
 
 //  -------------------------------------- slider css --------------------------------------
 .heroCarousel-content {
