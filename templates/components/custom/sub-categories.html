@@ -7,11 +7,13 @@
         {{#each children }}
         {{#if children }}
         <div class="subcategories-container">
-            <div class="title-container">
-                <h2>{{name}}</h2>
-            </div>
-            <div class="subcategories-link">
-                <a href="{{url}}" class="cat-link">View All</a>
+            <div class="subcategories-wrapper">
+                <div class="title-container">
+                    <h2>{{name}}</h2>
+                </div>
+                <div class="subcategories-link">
+                    <a href="{{url}}" class="cat-link">View All</a>
+                </div>
             </div>
             {{#if children}}
             <div class="grid grid-col-6-desktop subcategories-children-container">
@@ -25,7 +27,7 @@
                             </div>
                             {{/if}}
                             <div class="card-body">
-                                <span class="bold">{{name}}</span>
+                                {{name}}
                             </div>
                         </a>
                     </div>
