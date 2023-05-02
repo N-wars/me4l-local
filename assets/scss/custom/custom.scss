@@ -300,6 +300,27 @@ table{
     border: 0 !important;
     margin-top: 0 !important;
 }
+.modal-body {
+    padding: 2.25rem 1.25rem;
+}
+.step-listing {
+    li > strong {
+        font-weight: bold !important;
+    }
+}
+
+
+.icon--ratingFull svg {
+    fill: #FCC632 !important;
+}
+.rating--small .icon {
+    height: 24px;
+    width: 24px;
+    margin-top: 0;
+}
+[data-test-info-type="productRating"] {
+    margin-bottom: 0 !important;
+}
 //  ------------------------------------- global  css   ends-------------------------------------
 
 
@@ -609,6 +630,7 @@ ol.breadcrumbs {
         animation-timing-function: ease;
         animation-fill-mode: forwards;
     }
+
 
     /* animation menu hamburger */
     .menu-btn.open .menu-btn__lines {
@@ -1078,8 +1100,18 @@ ol.breadcrumbs {
 
 // banner section
 .heroCarousel-action {
-    margin: 15px 0 0;
+    margin: 10px 0 0;
 }
+.heroCarousel-content {
+    .phone-call {
+        color: white;
+        font-size: 20px;
+        line-height: 32px;
+        font-weight: 900;
+        margin-bottom: 0;
+    }
+}
+
 
 .heroCarousel-image-wrapper{
     img {
@@ -1427,7 +1459,7 @@ ol.breadcrumbs {
                 text-align: center;
                 .card-title {
                     line-height: 32px;
-                    margin-bottom: 0px;
+                    margin-bottom: 10px;
                     display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;  
@@ -1808,6 +1840,12 @@ section.page{
 //terms-conditions_
 
 .terms-conditions_ {
+    .no-text-decoration {
+        text-decoration: underline;
+        color: #231F20;
+        
+        text-decoration-thickness: 1px;
+    }
     .page-content {
         // h3 {
         // &:not(:first-child) {
@@ -1824,11 +1862,18 @@ section.page{
     }
 }
 
+//category page 
+.categories-all_
+{
+    .multicolumn-section {
+        padding: 30px 0 50px;
+    }
+}
 
 //FAQs
 
 .faq-table{
-    margin-top: 50px;
+    margin-top: 42px;
     th,td {
         padding-right: 16px;
         text-align: left;
@@ -1871,8 +1916,8 @@ section.page{
     .modal--small, .modal--large {
         max-width: 500px;
         .modal-header-title {
-            font-size: 20px;
-            line-height: 28px;
+            font-size: 18px;
+            line-height: 24px;
         }
         .previewCart {
             display: flex;
@@ -1910,11 +1955,15 @@ section.page{
     .productView-thumbnail {
         width: auto;
     }
+    
     .productView-thumbnail-link {
-        border: 2px solid #1b75bc;
+        border: 0;
         border-radius: 5px;
         height: 118px;
         max-width: 122px;
+    }
+    .productView-thumbnail-link.is-active {
+        border: 2px solid #1b75bc;
     }
     .productView-thumbnails img {
         width: 100%;
@@ -2205,7 +2254,48 @@ section.page{
     max-width: 100%;
 }
 
-
+// modal add to cart
+@media (min-width: 801px)
+{
+    .productView-image {
+        min-height: 100%;
+        min-width: inherit;
+    }
+    .previewCart .productView-image {
+        margin-bottom: 15px;
+    }
+    .previewCart .productView-details {
+        padding-left: 0rem;
+        padding-right: 0rem;
+        width: 100%;
+        float: left;
+    }
+    .previewCart .productView-price {
+        font-size: 20px;
+        margin-bottom: 0rem;
+    }
+    .previewCart{
+        .productView-info > :first-child {
+            margin-top: 0;
+        }
+    }
+    
+}
+.previewCartCheckout .button {
+    display: block;
+    margin: 0;
+    width: 100%;
+    border-radius: 10px;
+}
+.previewCartCheckout .button:active {
+    border: 1px solid #757575;
+}
+.previewCartCheckout-subtotal {
+    margin-bottom: 0.5rem;
+}
+.productView-options .add-to-cart-wallet-buttons  {
+    margin-top: 0;
+}
 
 
 //form 
@@ -2523,6 +2613,7 @@ section.page{
 // end kc.B--------------------------------------------------------------
 
 
+
 // --------------------------------------- footer ---------------------------------------
 .footer {
     background-color: #17629e;
@@ -2557,10 +2648,19 @@ h3.footer-info-heading {
 .footer {
     .no-text-decoration {
         color: white;
+        &:hover {
+            color: #ffffff;
+        }
     }
 }
 .no-text-decoration {
     text-decoration: none;
+}
+.footer-content.footer-info-list svg {
+    width: 18px;
+    height: 18px;
+    vertical-align: middle;
+    margin-right: 4px;
 }
 
 //  -------------------------------------- slider css --------------------------------------
@@ -2812,7 +2912,7 @@ h3.footer-info-heading {
             
 
             @media (min-width: 992px) {
-                margin-bottom: 23px;
+            margin-bottom: 23px;
             }
         }
 
@@ -2987,7 +3087,7 @@ h3.footer-info-heading {
         font-size: 16px;
         line-height: 26px;
     }
-
+        
     .pagination-link[aria-label="Next"] {
         text-decoration: underline;
         font-size: 16px;

@@ -1046,6 +1046,7 @@
     }
     .navbar .page-menu-item:hover .page-dropdown .page-sub-menu-item {
         padding: 0;
+
     }
     .navbar .page-menu-item:hover .page-dropdown {
         margin-right: 0;
@@ -1081,6 +1082,11 @@
 
     //home page 
     //banner 
+ 
+    .heroCarousel-slide .heroCarousel-content .heroCarousel-title {
+        font-size: 28px;
+        line-height: 40px;
+    }
     .heroCarousel-slide {
         .heroCarousel-content {
             width: 100%;
@@ -1088,6 +1094,11 @@
             .heroCarousel-title, .heroCarousel-description {
                 color: #1b75bc;
             }
+        }
+        .phone-call {
+            font-size: 16px;
+            line-height: 28px;
+            color: #1b75bc;
         }
     }
     .heroCarousel {
@@ -1298,7 +1309,7 @@
         margin-top: 30px;
     }
     h2.logo-design {
-        white-space: nowrap;
+        white-space: normal;
         overflow: hidden;
         text-overflow: ellipsis;
     }
