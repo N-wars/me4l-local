@@ -2,7 +2,7 @@
     <div class="container">
         {{#each categories }}
         {{#each children }}
-        {{#if this.id '==' 'category.id'}}
+        {{#if this.id '==' ../../category.id}}
         {{name}}
         {{#each children }}
         {{#if children }} 

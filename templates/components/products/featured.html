@@ -59,7 +59,7 @@
         {{#each products}}
         <li class="product" data-product-slide>
             {{>components/products/card settings=../settings theme_settings=../theme_settings customer=../customer
-            event="list" position=(add @index 1)}}
+            event="list" position=(add @index 1) hasRating=true}}
         </li>
         {{/each}}
     </ul>
