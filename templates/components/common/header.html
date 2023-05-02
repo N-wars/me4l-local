@@ -132,9 +132,11 @@
 
     megaMenuItem.addEventListener('mouseenter', function() {
     megaMenuItem.classList.add('open');
+    document.querySelector('body').classList.add('categories-open');
     });
 
     megaMenuItem.addEventListener('mouseleave', function() {
+    document.querySelector('body').classList.remove('categories-open');
     timeout = setTimeout(function() {
         megaMenuItem.classList.remove('open');
     }, 500); // delay in milliseconds
