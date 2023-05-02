@@ -1,33 +1,33 @@
 <section class="sub-menu-container">
     <div class="container">
         {{#each categories }}
+        {{#if children }}
         {{#each children }}
-        {{#if this.id '==' ../../category.id}}
-        {{name}}
+        {{#if this.id '==' ../../categoryId}}
         {{#each children }}
-        {{#if children }} 
+        {{#if children }}
         <div class="subcategories-container">
             <div class="title-container">
                 <h2>{{name}}</h2>
             </div>
             <div class="subcategories-link">
                 <a href="{{url}}" class="cat-link">View All</a>
-            </div> 
+            </div>
             {{#if children}}
             <div class="grid grid-col-6-desktop subcategories-children-container">
                 {{#each children}}
                 <div class="sub-item grid-item">
                     <div class="card-container card">
-                        {{#if image}}
-                        <div class="card-image-container">
-                            <a href="{{url}}" aria-label="{{name}}">
+                        <a href="{{url}}" aria-label="{{name}}">
+                            {{#if image}}
+                            <div class="card-image-container">
                                 <img src="{{getImage image 'thumbnail'}}" alt="{{name}}">
-                            </a>
-                        </div>
-                        {{/if}}
-                        <div class="card-body">
-                            <span class="bold">{{name}}</span>
-                        </div>
+                            </div>
+                            {{/if}}
+                            <div class="card-body">
+                                <span class="bold">{{name}}</span>
+                            </div>
+                        </a>
                     </div>
                 </div>
                 {{/each}}
@@ -45,8 +45,36 @@
         </div>
         {{/if}}
         {{/each}}
+        {{else}}
+        {{#each children }}
+        {{#if this.id '==' ../../../categoryId}}
+        {{#if children}}
+        <div class="grid grid-col-6-desktop subcategories-children-container grand-children-container">
+            {{#each children}}
+            <div class="sub-item grid-item">
+                <div class="card-container card">
+                    <a href="{{url}}" aria-label="{{name}}">
+                        {{#if image}}
+                        <div class="card-image-container">
+                            <img src="{{getImage image 'thumbnail'}}" alt="{{name}}">
+                        </div>
+                        {{/if}}
+                        <div class="card-body">
+                            <span class="bold">{{name}}</span>
+                        </div>
+                    </a>
+
+                </div>
+            </div>
+            {{/each}}
+        </div>
+
+        {{/if}}
         {{/if}}
         {{/each}}
+        {{/if}}
+        {{/each}}
+        {{/if}}
         {{/each}}
     </div>
 </section>
