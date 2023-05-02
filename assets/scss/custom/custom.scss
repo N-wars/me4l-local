@@ -631,6 +631,7 @@ ol.breadcrumbs {
         animation-fill-mode: forwards;
     }
 
+
     /* animation menu hamburger */
     .menu-btn.open .menu-btn__lines {
         transform: translateX(1rem);
@@ -1842,6 +1843,7 @@ section.page{
     .no-text-decoration {
         text-decoration: underline;
         color: #231F20;
+        
         text-decoration-thickness: 1px;
     }
     .page-content {
@@ -2611,6 +2613,7 @@ section.page{
 // end kc.B--------------------------------------------------------------
 
 
+
 // --------------------------------------- footer ---------------------------------------
 .footer {
     background-color: #17629e;
@@ -2909,7 +2912,7 @@ h3.footer-info-heading {
             
 
             @media (min-width: 992px) {
-                margin-bottom: 23px;
+            margin-bottom: 23px;
             }
         }
 
@@ -3084,7 +3087,7 @@ h3.footer-info-heading {
         font-size: 16px;
         line-height: 26px;
     }
-
+        
     .pagination-link[aria-label="Next"] {
         text-decoration: underline;
         font-size: 16px;
