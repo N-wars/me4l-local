@@ -14,8 +14,15 @@
     </div>
     <ul class="menu-items">
         {{#each categories}}
-        <li>
-            <a href="{{url}}" id="catalogue_link" class="menu-item first-item expand-btn">{{name}}</a>
+        <li class="category-menu-item">
+            <div class="first-item-menu-wrapper">
+                <a href="{{url}}" id="catalogue_link" class="menu-item first-item expand-btn">{{name}}</a>
+                <div class="svg-container svg-container-mobile">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="12.465" height="7.5" viewBox="0 0 12.465 7.5">
+                        <path id="Path_1" data-name="Path 1" d="M.367-7.867l4.965,5A1.379,1.379,0,0,0,6.25-2.5a1.246,1.246,0,0,0,.884-.366l4.965-5a1.25,1.25,0,0,0,.271-1.363A1.216,1.216,0,0,0,11.215-10H1.25a1.25,1.25,0,0,0-1.155.771A1.247,1.247,0,0,0,.367-7.867Z" transform="translate(0 10)" fill="#231f20"/>
+                    </svg>
+                </div>
+            </div>
             {{#if children}}
             <div class="mega-menu sample cat-1" id ="catalogue_items">
                 <div class="sub-menu-1">
@@ -96,4 +103,3 @@
         {{/each}}
     </ul>
 </div>
-<div class="overlay"></div>

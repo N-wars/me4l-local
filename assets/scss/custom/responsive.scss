@@ -1039,6 +1039,22 @@
             padding-bottom: 65px;
         }
     }
+    .category .page-sidebar {
+        width: 40%;
+    }
+    .category .page-sidebar + .page-content {
+        width: 60%;
+    }
+    .page-sidebar .facetedSearch-navList .accordion-block {
+        padding: 15px 15px;
+    }
+    .page-sidebar .facetedSearch-navList .accordion-title {
+        font-size: 14px;
+    line-height: 24px;
+    }
+    .accordion--navList .accordion-title {
+        padding: 0.5rem;
+    }
     .page-category .productGrid .card .card-body {
         padding: 16px 10px 20px;
     }
@@ -1826,7 +1842,7 @@
     }
 
     //slick
-    .slick-prev, .slick-next {
+    .slick-prev .slick-next {
         padding: 6px 8px;
     }
 
@@ -1865,3 +1881,5 @@
         }
     }
 }
+
+//completed

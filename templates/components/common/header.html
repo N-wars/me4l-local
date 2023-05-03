@@ -66,6 +66,8 @@
     </div>
 </header>
 
+<div class="overlay"></div>
+
 <script>
     const overlay = document.querySelector(".overlay");
     const body = document.querySelector("body");
@@ -97,16 +99,6 @@
         }
     };
 
-    document.addEventListener("click", (e) => {
-        let target = e.target,
-            its_menu = target === menuItems || menuItems.contains(target),
-            its_hamburger = target === menuBtn,
-            menu_is_active = menuItems.classList.contains("open");
-        if (!its_menu && !its_hamburger && menu_is_active) {
-            toggle();
-        }
-    });
-
     // mobile menu expand
     expandBtn.forEach((btn) => {
         btn.addEventListener("click", () => {
@@ -124,6 +116,16 @@
         })
     })
 
+    $('.svg-container-mobile').click(function(){
+        $(this).prev().toggleClass('open')
+        $(this).parent().next().toggleClass('open')
+    })
+
+    $('.page-menu-item.expand-btn').hover(function(){
+        $(this).toggleClass('open')
+    })
+
+
     //catalogue hover
 
     const megaMenuItem = document.querySelector('.menu-items li');
@@ -132,9 +134,11 @@
 
     megaMenuItem.addEventListener('mouseenter', function() {
     megaMenuItem.classList.add('open');
+    body.classList.add('categories-open');
     });
 
     megaMenuItem.addEventListener('mouseleave', function() {
+    body.classList.remove('categories-open');
     timeout = setTimeout(function() {
         megaMenuItem.classList.remove('open');
     }, 1000); // delay in milliseconds

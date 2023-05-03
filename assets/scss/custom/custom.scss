@@ -190,6 +190,9 @@ dl, ol, ul {
         }
     }
 }
+.svg-container-mobile {
+    display: none;
+}
 .iat-sub-title {
     color: #1b75bc;
     font-size: 18px;
@@ -321,6 +324,7 @@ table{
 [data-test-info-type="productRating"] {
     margin-bottom: 0 !important;
 }
+
 @media all and (min-width: 992px) {
     ul {
         li {
@@ -3259,3 +3263,4 @@ h3.footer-info-heading {
         }
     }
 }
+//cc
