@@ -104,24 +104,25 @@
             }
         ]
             }' {{/gt}}>
-            {{#each product.images}}
-            <li class="productView-thumbnail">
-                <a class="productView-thumbnail-link"
-                    href="{{getImageSrcset this (cdn ../theme_settings.default_image_product) 1x=../theme_settings.zoom_size}}"
-                    data-image-gallery-item
-                    data-image-gallery-new-image-url="{{getImageSrcset this (cdn ../theme_settings.default_image_product) 1x=../theme_settings.product_size}}"
-                    data-image-gallery-new-image-srcset="{{getImageSrcset this use_default_sizes=true}}"
-                    data-image-gallery-zoom-image-url="{{getImageSrcset this (cdn ../theme_settings.default_image_product) 1x=../theme_settings.zoom_size}}">
-                    {{> components/common/responsive-img
-                    image=this
-                    fallback_size=../theme_settings.productview_thumb_size
-                    lazyload=../theme_settings.lazyload_mode
-                    }}
-                </a>
-            </li>
-            {{/each}}
-        </ul>
+                {{#each product.images}}
+                <li class="productView-thumbnail">
+                    <a class="productView-thumbnail-link {{#if @first}}is-active{{/if}}"
+                        href="{{getImageSrcset this (cdn ../theme_settings.default_image_product) 1x=../theme_settings.zoom_size}}"
+                        data-image-gallery-item
+                        data-image-gallery-new-image-url="{{getImageSrcset this (cdn ../theme_settings.default_image_product) 1x=../theme_settings.product_size}}"
+                        data-image-gallery-new-image-srcset="{{getImageSrcset this use_default_sizes=true}}"
+                        data-image-gallery-zoom-image-url="{{getImageSrcset this (cdn ../theme_settings.default_image_product) 1x=../theme_settings.zoom_size}}">
+                        {{> components/common/responsive-img
+                        image=this
+                        fallback_size=../theme_settings.productview_thumb_size
+                        lazyload=../theme_settings.lazyload_mode
+                        }}
+                    </a>
+                </li>
+                {{/each}}
+            </ul>
         </section>
+
 
         <section class="productView-details product-data">
             <div class="productView-product">
@@ -323,20 +324,32 @@
                         {{{dynamicComponent 'components/products/options'}}}
                         {{/each}}
                     </div>
+
+                    {{#each product.custom_fields}}
+                    {{#if name '===' 'Build To Order'}}
+                    {{#or (if value '===' 'Yes') (if value '===' 'yes')}}
+                    <div id="build-to-order" class="build-to-order-container">
+                        <span><strong>Build To Order: </strong>These products are build to order. Please allow 5-10
+                            business days lead time to build and ship the product</span>
+                    </div>
+                    {{else}}
                     <div id="data-product-stock"
                         class="form-field form-field--stock{{#unless product.stock_level}} u-hiddenVisually{{/unless}}">
                         <label class="form-label form-label--alternate">
-                            <span class="sv-container"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18">
-                                <path id="Path_132" data-name="Path 132" d="M9-15.75a9,9,0,0,0-9,9,9,9,0,0,0,9,9,9,9,0,0,0,9-9A9,9,0,0,0,9-15.75ZM13.071-8.3l-4.5,4.5a.976.976,0,0,1-.7.288.98.98,0,0,1-.7-.288l-2.25-2.25a.987.987,0,0,1,0-1.393.985.985,0,0,1,1.393,0L7.875-5.892l3.8-3.8a.985.985,0,0,1,1.393,0A.988.988,0,0,1,13.071-8.3Z" transform="translate(0 15.75)" fill="green"/>
-                              </svg></span>
-                            <span>{{#if product.stock_level}}{{product.stock_level}} In Stock{{else}}Out of stock{{/if}}</span>
+                            <span class="sv-container"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                                    viewBox="0 0 18 18">
+                                    <path id="Path_132" data-name="Path 132"
+                                        d="M9-15.75a9,9,0,0,0-9,9,9,9,0,0,0,9,9,9,9,0,0,0,9-9A9,9,0,0,0,9-15.75ZM13.071-8.3l-4.5,4.5a.976.976,0,0,1-.7.288.98.98,0,0,1-.7-.288l-2.25-2.25a.987.987,0,0,1,0-1.393.985.985,0,0,1,1.393,0L7.875-5.892l3.8-3.8a.985.985,0,0,1,1.393,0A.988.988,0,0,1,13.071-8.3Z"
+                                        transform="translate(0 15.75)" fill="green" />
+                                </svg></span>
+                            <span>{{#if ../product.stock_level}}{{../product.stock_level}} In Stock{{else}}Out of
+                                stock{{/if}}</span>
                         </label>
                     </div>
-                    
-                    <div id="build-to-order" class="build-to-order-container" style="display: none;">
-                        <span><strong>Build To Order: </strong>These products are build to order. Please allow 5-10 business days lead time to build and ship the product</span>
-                    </div>
-                    
+                    {{/or}}
+                    {{/if}}
+                    {{/each}}
+                   
                     {{> components/products/add-to-cart with_wallet_buttons=true}}
                     {{#if product.out_of_stock}}
                     {{#if product.out_of_stock_message}}
@@ -364,7 +377,7 @@
 
 {{#if product.price.non_sale_price_without_tax}}
 <script>
-    var jsonObject = JSON.parse({{jsContext}});
+    var jsonObject = JSON.parse({{ jsContext }});
     var comparePrice = parseInt(jsonObject['nonSaleProductPrice'])
     var productPrice = parseInt(jsonObject['productPrice'])
     const discount = comparePrice - productPrice;
@@ -375,23 +388,3 @@
     }
 </script>
 {{/if}}
-
-<script>
-const checkboxElements = document.querySelectorAll('input.form-checkbox[data-displayName="Build To Order"]');
-var productStock = document.getElementById('data-product-stock');
-var build_to_order = document.getElementById('build-to-order');
-if(checkboxElements){
-    checkboxElements.forEach(checkbox => {
-    checkbox.addEventListener('change', () => {
-        if (checkbox.checked) {
-            productStock.style = "display:none";
-            build_to_order.style = "";
-        } else {
-            build_to_order.style = "display:none";
-            productStock.style = "";
-        }
-    });
-    });
-}
-
-</script>

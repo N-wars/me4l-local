@@ -28,7 +28,6 @@ products:
 {{#if category.subcategories}}
 {{> components/custom/sub-categories categoryId = category.id}}
 {{/if}}
-{{#if category.products}}
 <div class="page page-category">
     <div class="container">
       {{#if category.faceted_search_enabled}}
@@ -53,11 +52,7 @@ products:
       </div>
     </div>
   </div>
-  {{else}}
-  {{#if category.search_error}}
-    <p>{{lang 'search.errorMessage'}}</p>
-   {{/if}}
-{{/if}}
+
 
 {{#if category.subcategories}}
     <section class="category-description-container">
