@@ -99,18 +99,6 @@
         }
     };
 
-    // document.addEventListener("click", (e) => {
-    //     let target = e.target,
-    //         its_menu = target === menuItems || menuItems.contains(target),
-    //         its_hamburger = target === menuBtn,
-    //         menu_is_active = menuItems.classList.contains("open");
-    //     if (!its_menu && !its_hamburger && menu_is_active) {
-    //         toggle();
-    //     }
-    //     console.log("yuyuyu")
-
-    // });
-
     // mobile menu expand
     expandBtn.forEach((btn) => {
         btn.addEventListener("click", () => {
@@ -153,7 +141,7 @@
     body.classList.remove('categories-open');
     timeout = setTimeout(function() {
         megaMenuItem.classList.remove('open');
-    }, 500); // delay in milliseconds
+    }, 1000); // delay in milliseconds
     });
 
     megaMenu.addEventListener('mouseenter', function() {
@@ -164,7 +152,7 @@
     megaMenu.addEventListener('mouseleave', function() {
     timeout = setTimeout(function() {
         megaMenuItem.classList.remove('open');
-    }, 500); // delay in milliseconds
+    }, 1000); // delay in milliseconds
     });
 
 // catalogue children's children hover

@@ -326,7 +326,7 @@
                     </div>
 
                     {{#each product.custom_fields}}
-                    {{#if name '===' 'Build To Order'}}
+                    {{#or (if name '===' 'Build To Order')(if name '===' 'Build to order')}}
                     {{#or (if value '===' 'Yes') (if value '===' 'yes')}}
                     <div id="build-to-order" class="build-to-order-container">
                         <span><strong>Build To Order: </strong>These products are build to order. Please allow 5-10
@@ -347,7 +347,7 @@
                         </label>
                     </div>
                     {{/or}}
-                    {{/if}}
+                    {{/or}}
                     {{/each}}
                    
                     {{> components/products/add-to-cart with_wallet_buttons=true}}
