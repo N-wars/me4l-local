@@ -151,11 +151,13 @@
             </span>
         </p>
         {{else if rating}}
+        {{#if hasRating}}
         <p class="card-text" data-test-info-type="productRating">
             <span class="rating--small">
                 {{> components/products/ratings rating_target=name rating=rating}}
             </span>
         </p>
+        {{/if}}
     {{/and}}
 
         <div class="card-text" data-test-info-type="price">

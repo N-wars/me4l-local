@@ -321,6 +321,24 @@ table{
 [data-test-info-type="productRating"] {
     margin-bottom: 0 !important;
 }
+@media all and (min-width: 992px) {
+    ul {
+        li {
+            &:not(:last-child) {
+                padding-bottom: 10px;
+            }
+        }
+    }
+    .navbar {
+        ul {
+            li {
+                &:not(:last-child) {
+                    padding-bottom: 0px;
+                }
+            }
+        }
+    }
+}
 //  ------------------------------------- global  css   ends-------------------------------------
 
 
@@ -467,9 +485,15 @@ ol.breadcrumbs {
         opacity: 1;
         margin-left: 5px;
     }
-    .expand-btn:hover:after {
+    .expand-btn:hover:after, .menu-items li.open .expand-btn:after {
         background: url(../img/arrow-down-blue.png) no-repeat;
         transform: rotate(180deg);
+    }
+    .navbar .menu-items li.open .menu-item {
+        color: #1b75bc;
+    }
+    .navbar .menu-items li.open .menu-item.menu-children-btn:hover {
+        color: #fff;
     }
 
     .navbar .dropdown-menu,
@@ -616,10 +640,10 @@ ol.breadcrumbs {
         padding: 0;
     }
 
-    .menu-items li.open {
-        padding-top: 54px;
-        padding-bottom: 54px;
-    }
+    // .menu-items li.open {
+    //     padding-top: 54px;
+    //     padding-bottom: 54px;
+    // }
 
     .menu-items li:hover .mega-menu, .menu-items li.open .mega-menu {
         opacity: 1;
@@ -825,7 +849,7 @@ ol.breadcrumbs {
             li {
                 .mega-menu {
                     background: #ffffff;
-                    border: 1px solid #F5F5F5;
+                    border-top: 1px solid #F5F5F5;
                    .sub-menu-1 {
                         ul.menu-items {
                             .menu-item-list {
@@ -843,6 +867,7 @@ ol.breadcrumbs {
                                         max-height: 600px;
                                         overflow-y: auto;
                                         overflow-x: hidden;
+                                        border-top: 1px solid #F5F5F5;
                                     }
                                     .menu-grandchildren {
                                         display: flex;
@@ -1869,6 +1894,26 @@ section.page{
         padding: 30px 0 50px;
     }
 }
+.category .page.page-category {
+    margin: 0;
+}
+.category {
+    .sub-menu-container {
+        padding-bottom: 80px;
+    }
+    .subcategories-container {
+        margin: 50px 0;
+        .subcategories-children-container {
+            .card {
+                margin-bottom: 0;
+                .card-body {
+                    padding-top: 16px;
+                    text-align: center;
+                }
+            }
+        }
+    }
+}
 
 //FAQs
 
@@ -1948,6 +1993,9 @@ section.page{
             padding-right: 60px;
         }
     }
+    .form-select {
+        background-color: transparent;
+    }
 }
 
 .product-gallery-section {
@@ -1957,7 +2005,7 @@ section.page{
     }
     
     .productView-thumbnail-link {
-        border: 0;
+        border: 2px solid #f1f1f1;
         border-radius: 5px;
         height: 118px;
         max-width: 122px;
@@ -2090,6 +2138,18 @@ section.page{
     .productView-thumbnails {
         padding: 0 20px;
     }
+
+    .slick-next, .slick-prev {
+        background-color: transparent;
+        border: 1px solid #1B75BC;
+        &:before {
+            filter: invert(100%);
+        }
+        &:hover {
+            background-color: transparent !important;
+            border: 1px solid #1B75BC; 
+        }
+    }
 }
 .related-product-and-desciption-container {
     padding: 30px 0 80px;
@@ -2108,11 +2168,11 @@ section.page{
             }
         
         .produt-description-container {
-            width: 70%;
+            width: 75%;
             padding-right: 50px;
             ul {
                 margin-bottom: 16px;
-                li>strong {
+                li strong {
                     font-weight: 400;
                     font-size: 18px;
                     line-height: 32px;
@@ -2124,7 +2184,7 @@ section.page{
             }
         }
         .related-product-container {
-            width: 30%;
+            width: 25%;
             .product-common-info {
                 margin-bottom: 30px;
             }
@@ -3095,8 +3155,6 @@ h3.footer-info-heading {
         color: #1B75BC;
     }
 }
-
-
 .categories-open {
     .overlay {
         position: absolute;
@@ -3108,5 +3166,6 @@ h3.footer-info-heading {
         height: 100%;
         z-index: 2;
         opacity: 0.7;
+        margin-top: 0 !important;
     }
 } 
